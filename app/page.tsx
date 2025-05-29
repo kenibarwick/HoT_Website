@@ -1,122 +1,173 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import Logo from "@/components/ui/logo";
 import { Music, Calendar, Users, Volume2, Play } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 
-export default function HouseOfTechnoLanding() {
+// Header Component
+function Header() {
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
-      {/* Header */}
-      <header className="border-b border-gray-800">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <Image
-              src="/hot-logo.png"
-              alt="House of Techno Logo"
-              width={60}
-              height={60}
-              className="h-12 w-12"
-            />
-          </div>
-          <nav className="hidden md:flex space-x-8">
-            <Link href="#events" className="text-cyan-400 hover:text-cyan-300 transition-colors">
-              Events
-            </Link>
-            <Link href="#artists" className="text-cyan-400 hover:text-cyan-300 transition-colors">
-              Artists
-            </Link>
-            <Link href="#about" className="text-cyan-400 hover:text-cyan-300 transition-colors">
-              About
-            </Link>
-            <Link href="#contact" className="text-cyan-400 hover:text-cyan-300 transition-colors">
-              Contact
-            </Link>
-          </nav>
+    <header className="border-b border-gray-800">
+      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+        <div className="flex items-center space-x-2">
+          <Image
+            src="/hot-logo.png"
+            alt="House of Techno Logo"
+            width={60}
+            height={60}
+            className="h-12 w-12"
+          />
         </div>
-      </header>
+        <nav className="hidden md:flex space-x-8">
+          <Link href="#events" className="text-cyan-400 hover:text-cyan-300 transition-colors">
+            Events
+          </Link>
+          <Link href="#artists" className="text-cyan-400 hover:text-cyan-300 transition-colors">
+            Artists
+          </Link>
+          <Link href="#about" className="text-cyan-400 hover:text-cyan-300 transition-colors">
+            About
+          </Link>
+          <Link href="#contact" className="text-cyan-400 hover:text-cyan-300 transition-colors">
+            Contact
+          </Link>
+        </nav>
+      </div>
+    </header>
+  )
+}
 
-      {/* Hero Section */}
-      <section className="relative py-20 md:py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-pink-500/10 via-transparent to-orange-500/10"></div>
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <div className="mb-8">
-            <div className="flex justify-center mb-4">
+// Hero Section Component
+function HeroSection() {
+  return (
+    <section className="relative flex items-center justify-center min-h-screen bg-black">
+      {/* HoT Logo */}
+      <div className="mb-12 relative">
+        {/* Animated background circles */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-64 h-64 md:w-80 md:h-80 border border-cyan-500/20 rounded-full animate-spin-slow"></div>
+          <div className="absolute w-48 h-48 md:w-60 md:h-60 border border-pink-500/30 rounded-full animate-spin-reverse"></div>
+          <div className="absolute w-32 h-32 md:w-40 md:h-40 border border-orange-500/40 rounded-full animate-pulse"></div>
+        </div>
+
+        {/* Waveform graphics */}
+        <div className="absolute -left-20 top-1/2 transform -translate-y-1/2 hidden md:block">
+          <div className="flex items-end space-x-1" id="leftWaveform">
+            {/* Waveform bars will be generated dynamically */}
+          </div>
+        </div>
+
+        <div className="absolute -right-20 top-1/2 transform -translate-y-1/2 hidden md:block">
+          <div className="flex items-end space-x-1" id="rightWaveform">
+            {/* Waveform bars will be generated dynamically */}
+          </div>
+        </div>
+
+      <section className="relative flex items-center justify-center min-h-screen bg-black">
+        {/* HoT Logo */}
+        <Logo />
+      </section>
+
+      </div>
+    </section>
+  );
+}
+
+// Decorative elements 
+function DecorativeElements() {
+  return (
+    <div>
+      <div className="absolute top-20 right-10 w-2 h-20 bg-pink-500 rotate-45 opacity-60"></div>
+      <div className="absolute top-32 right-16 w-2 h-16 bg-orange-500 rotate-45 opacity-60"></div>
+      <div className="absolute top-44 right-22 w-2 h-12 bg-yellow-500 rotate-45 opacity-60"></div>
+      <div className="absolute bottom-20 left-10 w-2 h-24 bg-cyan-400 rotate-45 opacity-60"></div>
+    </div>
+  )
+}
+
+// Features Section
+function FeaturesSection() {
+  return (
+    <section className="py-20 bg-gray-800/50">
+      <div className="container mx-auto px-4">
+        <h2 className="text-4xl font-bold text-center mb-16 flex items-center justify-center gap-4">
+          <span className="text-cyan-400">Experience</span>
+          <Image
+            src="/hot-logo.png"
+            alt="HoT Logo"
+            width={60}
+            height={60}
+            className="h-12 w-12 inline-block"
+          />
+        </h2>
+        <div className="grid md:grid-cols-3 gap-8">
+          <Card className="bg-gray-800 border-gray-700">
+            <CardContent className="p-6 text-center">
+              <Music className="h-12 w-12 text-pink-500 mx-auto mb-4" />
+              <h3 className="text-xl font-bold text-cyan-400 mb-2">Pure Techno</h3>
+              <p className="text-gray-300">Underground beats that move your soul and ignite the dance floor.</p>
+            </CardContent>
+          </Card>
+          <Card className="bg-gray-800 border-gray-700">
+            <CardContent className="p-6 text-center">
+              <Users className="h-12 w-12 text-orange-500 mx-auto mb-4" />
+              <h3 className="text-xl font-bold text-cyan-400 mb-2">Community</h3>
+              <p className="text-gray-300">Join a family of techno lovers who live for the rhythm.</p>
+            </CardContent>
+          </Card>
+          <Card className="bg-gray-800 border-gray-700">
+            <CardContent className="p-6 text-center">
+              <Volume2 className="h-12 w-12 text-pink-500 mx-auto mb-4" />
+              <h3 className="text-xl font-bold text-cyan-400 mb-2">Sound System</h3>
+              <p className="text-gray-300">State-of-the-art audio that delivers every beat with crystal clarity.</p>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+// Footer Section
+function FooterSection() {
+    return (
+      <footer className="bg-gray-900 border-t border-gray-800 py-12">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <div className="flex items-center space-x-2 mb-4 md:mb-0">
               <Image
                 src="/hot-logo.png"
                 alt="House of Techno Logo"
-                width={300}
-                height={300}
-                className="h-48 w-48 md:h-64 md:w-64 drop-shadow-2xl"
-              />
+                width={48}
+                height={48}
+                className="h-10 w-10" />
+              <span className="text-orange-500 font-bold">House of Techno</span>
+            </div>
+            <div className="flex space-x-6">
+              <Link href="#" className="text-gray-400 hover:text-cyan-400 transition-colors">
+                Privacy
+              </Link>
+              <Link href="#" className="text-gray-400 hover:text-cyan-400 transition-colors">
+                Terms
+              </Link>
+              <Link href="#" className="text-gray-400 hover:text-cyan-400 transition-colors">
+                Contact
+              </Link>
             </div>
           </div>
-          <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
-            Where beats meet souls and the night never ends. Experience the ultimate techno journey.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-pink-500 hover:bg-pink-600 text-white px-8 py-3 text-lg">
-              <Play className="mr-2 h-5 w-5" />
-              Join the Beat
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-gray-900 px-8 py-3 text-lg"
-            >
-              <Calendar className="mr-2 h-5 w-5" />
-              Upcoming Events
-            </Button>
+          <div className="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">
+            <p>&copy; 2024 House of Techno. All rights reserved. Keep the beat alive.</p>
           </div>
         </div>
+      </footer>
+    );
+  }
 
-        {/* Decorative elements */}
-        <div className="absolute top-20 right-10 w-2 h-20 bg-pink-500 rotate-45 opacity-60"></div>
-        <div className="absolute top-32 right-16 w-2 h-16 bg-orange-500 rotate-45 opacity-60"></div>
-        <div className="absolute top-44 right-22 w-2 h-12 bg-yellow-500 rotate-45 opacity-60"></div>
-        <div className="absolute bottom-20 left-10 w-2 h-24 bg-cyan-400 rotate-45 opacity-60"></div>
-      </section>
-
-      {/* Features Section */}
-      <section className="py-20 bg-gray-800/50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-16 flex items-center justify-center gap-4">
-            <span className="text-cyan-400">Experience</span>
-            <Image
-              src="/hot-logo.png"
-              alt="HoT Logo"
-              width={60}
-              height={60}
-              className="h-12 w-12 inline-block"
-            />
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="bg-gray-800 border-gray-700">
-              <CardContent className="p-6 text-center">
-                <Music className="h-12 w-12 text-pink-500 mx-auto mb-4" />
-                <h3 className="text-xl font-bold text-cyan-400 mb-2">Pure Techno</h3>
-                <p className="text-gray-300">Underground beats that move your soul and ignite the dancefloor.</p>
-              </CardContent>
-            </Card>
-            <Card className="bg-gray-800 border-gray-700">
-              <CardContent className="p-6 text-center">
-                <Users className="h-12 w-12 text-orange-500 mx-auto mb-4" />
-                <h3 className="text-xl font-bold text-cyan-400 mb-2">Community</h3>
-                <p className="text-gray-300">Join a family of techno lovers who live for the rhythm.</p>
-              </CardContent>
-            </Card>
-            <Card className="bg-gray-800 border-gray-700">
-              <CardContent className="p-6 text-center">
-                <Volume2 className="h-12 w-12 text-pink-500 mx-auto mb-4" />
-                <h3 className="text-xl font-bold text-cyan-400 mb-2">Sound System</h3>
-                <p className="text-gray-300">State-of-the-art audio that delivers every beat with crystal clarity.</p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
+// CTA Section
+function CTASection()
+{
+    return (
       <section className="py-20 bg-gradient-to-r from-pink-500/20 via-purple-500/20 to-orange-500/20">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 flex items-center justify-center gap-4 flex-wrap">
@@ -143,38 +194,19 @@ export default function HouseOfTechnoLanding() {
           </div>
         </div>
       </section>
+    );
+}
 
-      {/* Footer */}
-      <footer className="bg-gray-900 border-t border-gray-800 py-12">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex items-center space-x-2 mb-4 md:mb-0">
-              <Image
-                src="/hot-logo.png"
-                alt="House of Techno Logo"
-                width={48}
-                height={48}
-                className="h-10 w-10"
-              />
-              <span className="text-orange-500 font-bold">House of Techno</span>
-            </div>
-            <div className="flex space-x-6">
-              <Link href="#" className="text-gray-400 hover:text-cyan-400 transition-colors">
-                Privacy
-              </Link>
-              <Link href="#" className="text-gray-400 hover:text-cyan-400 transition-colors">
-                Terms
-              </Link>
-              <Link href="#" className="text-gray-400 hover:text-cyan-400 transition-colors">
-                Contact
-              </Link>
-            </div>
-          </div>
-          <div className="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">
-            <p>&copy; 2024 House of Techno. All rights reserved. Keep the beat alive.</p>
-          </div>
-        </div>
-      </footer>
+// Main Landing Page Component
+export default function HouseOfTechnoLanding() {
+  return (
+    <div className="min-h-screen bg-gray-900 text-white">
+      <Header />
+      <HeroSection />
+      <DecorativeElements />
+      <FeaturesSection />
+      <CTASection />
+      <FooterSection />
     </div>
   )
 }
