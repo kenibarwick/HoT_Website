@@ -137,7 +137,7 @@ function FooterSection() {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center space-x-2 mb-4 md:mb-0">
               <Image
-                src="/hot-logo.png"
+                src="/hot_1.png"
                 alt="House of Techno Logo"
                 width={48}
                 height={48}
