@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+<<<<<<< HEAD
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -12,6 +13,8 @@ body {
   }
 }
 
+=======
+>>>>>>> v1
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -39,6 +42,7 @@ body {
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
+<<<<<<< HEAD
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
@@ -48,6 +52,10 @@ body {
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+=======
+  }
+
+>>>>>>> v1
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
@@ -73,6 +81,7 @@ body {
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+<<<<<<< HEAD
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -81,6 +90,8 @@ body {
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+=======
+>>>>>>> v1
   }
 }
 
@@ -93,11 +104,18 @@ body {
   }
 }
 
+<<<<<<< HEAD
+=======
+/* Custom animations for HoT logo */
+>>>>>>> v1
 @keyframes spin-slow {
   from {
     transform: rotate(0deg);
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> v1
   to {
     transform: rotate(360deg);
   }
@@ -107,25 +125,35 @@ body {
   from {
     transform: rotate(360deg);
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> v1
   to {
     transform: rotate(0deg);
   }
 }
 
 @keyframes wave {
+<<<<<<< HEAD
 
+=======
+>>>>>>> v1
   0%,
   100% {
     transform: scaleY(1);
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> v1
   50% {
     transform: scaleY(2);
   }
 }
 
 @keyframes glow {
+<<<<<<< HEAD
 
   0%,
   100% {
@@ -134,23 +162,72 @@ body {
 
   50% {
     filter: drop-shadow(0 0 40px rgba(236, 72, 153, 0.6));
+=======
+  0%,
+  100% {
+    filter: drop-shadow(0 0 20px rgba(34, 211, 238, 0.4)) drop-shadow(0 0 10px rgba(236, 72, 153, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 30px rgba(34, 211, 238, 0.6)) drop-shadow(0 0 20px rgba(236, 72, 153, 0.5))
+      drop-shadow(0 0 15px rgba(249, 115, 22, 0.4));
+  }
+}
+
+@keyframes bounce-subtle {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes pulse-slow {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+>>>>>>> v1
   }
 }
 
 @keyframes beat {
+<<<<<<< HEAD
 
+=======
+>>>>>>> v1
   0%,
   100% {
     transform: scale(1);
     opacity: 1;
   }
+<<<<<<< HEAD
 
   50% {
     transform: scale(1.2);
+=======
+  50% {
+    transform: scale(1.5);
+>>>>>>> v1
     opacity: 0.7;
   }
 }
 
+<<<<<<< HEAD
 @keyframes pulse-slow {
 
   0%,
@@ -173,12 +250,25 @@ body {
 
 .animate-wave {
   animation: wave 1s ease-in-out infinite;
+=======
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+
+.animate-spin-reverse {
+  animation: spin-reverse 6s linear infinite;
+}
+
+.animate-wave {
+  animation: wave 1.5s ease-in-out infinite;
+>>>>>>> v1
 }
 
 .animate-glow {
   animation: glow 3s ease-in-out infinite;
 }
 
+<<<<<<< HEAD
 .animate-beat {
   animation: beat 0.5s ease-in-out infinite;
 }
@@ -186,3 +276,20 @@ body {
 .animate-pulse-slow {
   animation: pulse-slow 2s ease-in-out infinite;
 }
+=======
+.animate-bounce-subtle {
+  animation: bounce-subtle 2s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s ease-in-out infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease-out;
+}
+
+.animate-beat {
+  animation: beat 0.5s ease-in-out infinite;
+}
+>>>>>>> v1
