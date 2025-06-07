@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House of Techno - Loading HoT v1 | July 4th at The Balloon Pub, Bedford</title>
+    <meta name="description" content="House of Techno Independence Day - July 4th 2025 at The Balloon Pub, Foster Hill Road, Bedford. DJ Sportsbra & keni.dj bringing underground beats to Bedford's biggest techno event.">
+    <meta name="keywords" content="House of Techno, HoT, Bedford, techno, electronic music, DJ Sportsbra, keni.dj, Balloon Pub, July 4th, Independence Day, nightlife, rave, underground music">
+    <meta name="author" content="House of Techno">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://houseoftechno.co.uk/">
+    
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com; font-src 'self';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="House of Techno - Coming Soon | July 4th 2025">
+    <meta property="og:description" content="Bedford's biggest techno event - July 4th 2025 at The Balloon Pub. Join DJ Sportsbra & keni.dj for an unforgettable Independence Day celebration.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://houseoftechno.co.uk/hot_1.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://houseoftechno.co.uk/">
+    <meta property="og:site_name" content="House of Techno">
+    <meta property="og:locale" content="en_GB">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="House of Techno - Coming Soon | July 4th 2025">
+    <meta name="twitter:description" content="Bedford's biggest techno event - July 4th 2025 at The Balloon Pub">
+    <meta name="twitter:image" content="https://houseoftechno.co.uk/hot_1.png">
+    <meta name="twitter:creator" content="@houseoftechno">
+    <meta name="twitter:site" content="@houseoftechno">
+    
+    <!-- Favicon and Icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="hot_1.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="hot_1.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="hot_1.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#ec4899">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="hot_1.png" as="image">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <link rel="dns-prefetch" href="//www.googletagmanager.com">
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MusicEvent",
+      "name": "House of Techno Independence Day",
+      "description": "Bedford's biggest techno event featuring DJ Sportsbra & keni.dj",
+      "startDate": "2025-07-04T18:00:00Z",
+      "endDate": "2025-07-05T02:00:00Z",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "name": "The Balloon Pub",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Foster Hill Road",
+          "addressLocality": "Bedford",
+          "addressCountry": "GB"
+        }
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "House of Techno",
+        "url": "https://houseoftechno.co.uk"
+      },
+      "performer": [
+        {
+          "@type": "Person",
+          "name": "DJ Sportsbra"
+        },
+        {
+          "@type": "Person", 
+          "name": "keni.dj"
+        }
+      ],
+      "image": "https://houseoftechno.co.uk/hot_1.png",
+      "url": "https://houseoftechno.co.uk"
+    }
+    </script>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GA_MEASUREMENT_ID', {
+        page_title: 'House of Techno - Loading v1',
+        custom_map: {'custom_parameter_1': 'event_countdown'}
+      });
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #000000 100%);
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.6;
+            position: relative;
+        }
+
+        /* Enhanced background effects */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(236, 72, 153, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(249, 115, 22, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 1;
+            will-change: transform;
+        }
+
+        /* Accessibility: Respect reduced motion preferences */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        .container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo-section {
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 20;
+        }
+
+        .logo-container {
+            position: relative;
+            text-align: center;
+        }
+
+        .logo-img {
+            width: 14rem;
+            height: 14rem;
+            margin: 0 auto;
+            border-radius: 1rem;
+            box-shadow: 
+                0 0 30px rgba(236, 72, 153, 0.3),
+                0 0 60px rgba(236, 72, 153, 0.1);
+            animation: logo-glow 3s ease-in-out infinite, float 6s ease-in-out infinite;
+            transition: transform 0.3s ease;
+            will-change: transform;
+        }
+
+        .logo-img:hover {
+            transform: scale(1.05);
+        }
+
+        .fallback-logo {
+            width: 14rem;
+            height: 14rem;
+            margin: 0 auto;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 4.5rem;
+            font-weight: 900;
+            color: #ec4899;
+            text-shadow: 0 0 20px rgba(236, 72, 153, 0.6);
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.1), rgba(249, 115, 22, 0.1));
+            border-radius: 1rem;
+            border: 2px solid rgba(236, 72, 153, 0.3);
+        }
+
+        .beat-indicator {
+            margin-top: 1.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .beat-dot {
+            width: 0.75rem;
+            height: 0.75rem;
+            background: linear-gradient(45deg, #ec4899, #f73859);
+            border-radius: 50%;
+            animation: beat 0.6s ease-in-out infinite;
+            box-shadow: 0 0 10px rgba(236, 72, 153, 0.5);
+            will-change: transform;
+        }
+
+        .beat-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .beat-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .event-info {
+            text-align: center;
+            margin-bottom: 3rem;
+            z-index: 20;
+            position: relative;
+        }
+
+        .event-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ec4899, #f97316);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(236, 72, 153, 0.3);
+            animation: title-pulse 4s ease-in-out infinite;
+        }
+
+        .venue-info {
+            margin-bottom: 1rem;
+        }
+
+        .venue-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #06b6d4;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 10px rgba(6, 182, 212, 0.3);
+        }
+
+        .address {
+            font-size: 1rem;
+            color: #9ca3af;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 0.5px;
+        }
+
+        .countdown-section {
+            text-align: center;
+            max-width: 32rem;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .countdown-text {
+            font-size: 1.5rem;
+            font-family: 'Courier New', monospace;
+            margin-bottom: 2rem;
+            color: #06b6d4;
+            text-shadow: 0 0 10px rgba(6, 182, 212, 0.3);
+            font-weight: 600;
+        }
+
+        .progress-container {
+            width: 100%;
+            background: linear-gradient(90deg, rgba(31, 41, 55, 0.8), rgba(55, 65, 81, 0.8));
+            border-radius: 9999px;
+            height: 0.75rem;
+            margin-top: 2rem;
+            overflow: hidden;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .progress-bar {
+            background: linear-gradient(90deg, #ec4899, #f97316, #06b6d4);
+            height: 0.75rem;
+            border-radius: 9999px;
+            transition: width 1s ease-out;
+            width: 0%;
+            box-shadow: 
+                0 0 10px rgba(236, 72, 153, 0.5),
+                0 0 20px rgba(249, 115, 22, 0.3);
+            animation: progress-glow 2s ease-in-out infinite;
+            will-change: width;
+        }
+
+        .progress-text {
+            font-size: 1rem;
+            color: #9ca3af;
+            font-family: 'Courier New', monospace;
+            margin-top: 1rem;
+            font-weight: 500;
+        }
+
+        .target-date {
+            margin-top: 3rem;
+            text-align: center;
+            color: #6b7280;
+            font-size: 0.875rem;
+            font-family: 'Courier New', monospace;
+        }
+
+        .transition-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #000000, #1a1a1a);
+            opacity: 0;
+            pointer-events: none;
+            z-index: 50;
+            transition: opacity 1s ease-in-out;
+        }
+
+        /* Enhanced background circles */
+        .bg-circles {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 5;
+        }
+
+        .circle-1 {
+            width: 20rem;
+            height: 20rem;
+            border: 2px solid rgba(6, 182, 212, 0.2);
+            border-radius: 50%;
+            animation: spin-slow 15s linear infinite;
+            box-shadow: 0 0 30px rgba(6, 182, 212, 0.1);
+            will-change: transform;
+        }
+
+        .circle-2 {
+            position: absolute;
+            width: 15rem;
+            height: 15rem;
+            border: 2px solid rgba(236, 72, 153, 0.3);
+            border-radius: 50%;
+            animation: spin-reverse 12s linear infinite;
+            box-shadow: 0 0 20px rgba(236, 72, 153, 0.1);
+            will-change: transform;
+        }
+
+        .circle-3 {
+            position: absolute;
+            width: 10rem;
+            height: 10rem;
+            border: 2px solid rgba(249, 115, 22, 0.4);
+            border-radius: 50%;
+            animation: pulse-circle 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+            box-shadow: 0 0 15px rgba(249, 115, 22, 0.2);
+            will-change: transform, opacity;
+        }
+
+        /* Enhanced waveforms */
+        .waveform {
+            display: flex;
+            align-items: flex-end;
+            gap: 0.25rem;
+        }
+
+        .waveform-left {
+            position: absolute;
+            left: -6rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: none;
+        }
+
+        .waveform-right {
+            position: absolute;
+            right: -6rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: none;
+        }
+
+        .wave-bar {
+            width: 0.3rem;
+            border-radius: 0.15rem;
+            animation: wave 1.2s ease-in-out infinite;
+            box-shadow: 0 0 5px currentColor;
+            will-change: transform;
+        }
+
+        .wave-cyan {
+            background: linear-gradient(to top, #06b6d4, #0891b2);
+            color: #06b6d4;
+        }
+
+        .wave-pink {
+            background: linear-gradient(to top, #ec4899, #f73859);
+            color: #ec4899;
+        }
+
+        /* Error message styling */
+        .error-message {
+            display: none;
+            background: rgba(220, 38, 38, 0.1);
+            border: 1px solid rgba(220, 38, 38, 0.3);
+            color: #fca5a5;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+            text-align: center;
+            font-size: 0.875rem;
+        }
+
+        /* No-script fallback styling */
+        .no-script-message {
+            display: none;
+            background: rgba(31, 41, 55, 0.8);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            margin-top: 2rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Enhanced animations */
+        @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes spin-reverse {
+            from { transform: rotate(360deg); }
+            to { transform: rotate(0deg); }
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: scaleY(1); }
+            50% { transform: scaleY(2.5); }
+        }
+
+        @keyframes logo-glow {
+            0%, 100% { 
+                box-shadow: 
+                    0 0 30px rgba(236, 72, 153, 0.3),
+                    0 0 60px rgba(236, 72, 153, 0.1);
+            }
+            50% { 
+                box-shadow: 
+                    0 0 40px rgba(236, 72, 153, 0.5),
+                    0 0 80px rgba(236, 72, 153, 0.2);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes beat {
+            0%, 100% { 
+                transform: scale(1); 
+                opacity: 1; 
+            }
+            50% { 
+                transform: scale(1.3); 
+                opacity: 0.7; 
+            }
+        }
+
+        @keyframes title-pulse {
+            0%, 100% { 
+                text-shadow: 0 0 30px rgba(236, 72, 153, 0.3);
+            }
+            50% { 
+                text-shadow: 0 0 40px rgba(236, 72, 153, 0.5);
+            }
+        }
+
+        @keyframes pulse-circle {
+            0%, 100% { 
+                opacity: 1; 
+                transform: scale(1);
+            }
+            50% { 
+                opacity: 0.6; 
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes progress-glow {
+            0%, 100% { 
+                box-shadow: 
+                    0 0 10px rgba(236, 72, 153, 0.5),
+                    0 0 20px rgba(249, 115, 22, 0.3);
+            }
+            50% { 
+                box-shadow: 
+                    0 0 15px rgba(236, 72, 153, 0.7),
+                    0 0 30px rgba(249, 115, 22, 0.5);
+            }
+        }
+
+        @keyframes fade-in {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .animate-fade-in {
+            animation: fade-in 1s ease-in-out forwards;
+        }
+
+        /* Responsive design */
+        @media (min-width: 768px) {
+            .logo-img, .fallback-logo {
+                width: 18rem;
+                height: 18rem;
+            }
+            
+            .fallback-logo {
+                font-size: 6rem;
+            }
+            
+            .event-title {
+                font-size: 3rem;
+            }
+            
+            .venue-name {
+                font-size: 1.75rem;
+            }
+            
+            .countdown-text {
+                font-size: 1.75rem;
+            }
+            
+            .circle-1 {
+                width: 25rem;
+                height: 25rem;
+            }
+            
+            .circle-2 {
+                width: 18rem;
+                height: 18rem;
+            }
+            
+            .circle-3 {
+                width: 12rem;
+                height: 12rem;
+            }
+            
+            .waveform-left, .waveform-right {
+                display: flex;
+            }
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            .circle-1, .circle-2, .circle-3 {
+                border-color: #ffffff;
+            }
+            
+            .countdown-section {
+                border-color: #ffffff;
+            }
+        }
+
+        /* Loading state */
+        .loading {
+            opacity: 0.7;
+            cursor: wait;
+        }
+
+        /* Skip link for accessibility */
+        .sr-only {
+            position: absolute;
+            left: -10000px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+            margin: -1px;
+            padding: 0;
+        }
+
+        .sr-only:focus {
+            position: static;
+            width: auto;
+            height: auto;
+            overflow: visible;
+            clip: auto;
+            background: #000;
+            color: #fff;
+            padding: 0.5rem;
+            text-decoration: none;
+            z-index: 1000;
+        }
+
+        /* Print styles */
+        @media print {
+            .bg-circles, .waveform-left, .waveform-right, .beat-indicator {
+                display: none;
+            }
+            
+            body {
+                background: white;
+                color: black;
+            }
+            
+            .countdown-section {
+                background: #f3f4f6;
+                border: 1px solid #d1d5db;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip link for accessibility -->
+    <a href="#main-content" class="sr-only">Skip to main content</a>
+
+    <!-- Transition Overlay -->
+    <div id="transition-overlay" class="transition-overlay" aria-hidden="true"></div>
+
+    <main id="main-content" class="container">
+        <!-- HoT Logo -->
+        <section class="logo-section" aria-label="House of Techno Logo">
+            <!-- Animated background circles -->
+            <div class="bg-circles" aria-hidden="true">
+                <div class="circle-1"></div>
+                <div class="circle-2"></div>
+                <div class="circle-3"></div>
+            </div>
+
+            <!-- Waveform graphics -->
+            <div class="waveform-left" aria-hidden="true">
+                <div class="waveform" id="leftWaveform"></div>
+            </div>
+
+            <div class="waveform-right" aria-hidden="true">
+                <div class="waveform" id="rightWaveform"></div>
+            </div>
+
+            <!-- Main logo -->
+            <div class="logo-container">
+                <img
+                    src="hot_1.png"
+                    alt="House of Techno Logo - Electronic music event"
+                    class="logo-img"
+                    loading="eager"
+                    decoding="async"
+                    onerror="this.style.display='none'; document.getElementById('fallback-logo').style.display='flex'; document.getElementById('fallback-logo').setAttribute('aria-label', 'House of Techno - HoT');"
+                />
+                <!-- Fallback text logo -->
+                <div id="fallback-logo" class="fallback-logo" role="img" aria-label="House of Techno">
+                    <div>HoT</div>
+                </div>
+
+                <!-- Beat indicator -->
+                <div class="beat-indicator" aria-hidden="true">
+                    <div class="beat-dot"></div>
+                    <div class="beat-dot"></div>
+                    <div class="beat-dot"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Event Info -->
+        <section class="event-info" aria-label="Event Information">
+            <h1 class="event-title">HoT @ The Balloon!</h1>
+            <h3 class="status">Loading</h3>
+            <div class="venue-info">
+                <div class="venue-name">The Balloon Pub</div>
+                <address class="address">Foster Hill Road, Bedford</address>
+            </div>
+        </section>
+        
+        <!-- Countdown -->
+        <section class="countdown-section" aria-label="Event Countdown">
+            <div class="countdown-text" id="beats-countdown" aria-live="polite">Loading HoT v1...</div>
+
+            <!-- Progress Bar -->
+            <div class="progress-container" role="progressbar" aria-label="Time until event" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <div id="progress-bar" class="progress-bar"></div>
+            </div>
+            <div class="progress-text" id="progress-percent" aria-live="polite">0.0% complete</div>
+            
+            <!-- Error message -->
+            <div id="error-message" class="error-message" role="alert">
+                <strong>Oops!</strong> Something went wrong with the countdown. The event is still happening on July 4th, 2025!
+            </div>
+            
+            <!-- No-script fallback -->
+            <noscript>
+                <div class="no-script-message" style="display: block;">
+                    <strong>Event Date:</strong> Friday, July 4th, 2025 at 6:00 PM UTC<br>
+                    <strong>Venue:</strong> The Balloon Pub, Foster Hill Road, Bedford<br>
+                    <em>Enable JavaScript for live countdown and enhanced experience</em>
+                </div>
+            </noscript>
+        </section>
+
+        <!-- Target Date -->
+        <footer class="target-date">
+            <time datetime="2025-07-04T18:00:00Z">Friday, July 4th, 2025 • 18:00 UTC</time>
+        </footer>
+    </main>
+
+    <script>
+        'use strict';
+        
+        // Enhanced error tracking and reporting
+        window.addEventListener('error', function(e) {
+            console.error('Application error:', e.error || e.message);
+            
+            // Track error in analytics if available
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'exception', {
+                    description: e.message,
+                    fatal: false
+                });
+            }
+            
+            // Show user-friendly error message
+            showError('countdown-error');
+        });
+
+        window.addEventListener('unhandledrejection', function(e) {
+            console.error('Unhandled promise rejection:', e.reason);
+            
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'exception', {
+                    description: 'Promise rejection: ' + e.reason,
+                    fatal: false
+                });
+            }
+        });
+
+        // Performance monitoring
+        window.addEventListener('load', function() {
+            if (typeof gtag !== 'undefined' && 'performance' in window) {
+                const timing = performance.timing;
+                const loadTime = timing.loadEventEnd - timing.navigationStart;
+                
+                gtag('event', 'timing_complete', {
+                    name: 'page_load',
+                    value: loadTime
+                });
+            }
+        });
+
+        // Show error message to user
+        function showError(errorType) {
+            try {
+                const errorElement = document.getElementById('error-message');
+                const fallbackElement = document.querySelector('.no-script-message');
+                
+                if (errorElement) {
+                    errorElement.style.display = 'block';
+                }
+                
+                if (fallbackElement && errorType === 'countdown-error') {
+                    fallbackElement.style.display = 'block';
+                }
+            } catch (error) {
+                console.warn('Error showing error message:', error);
+            }
+        }
+
+        // Enhanced waveform generation with error handling
+        function createWaveform(containerId, colorClass) {
+            try {
+                const container = document.getElementById(containerId);
+                if (!container) {
+                    console.warn(`Waveform container ${containerId} not found`);
+                    return;
+                }
+                
+                // Clear existing content
+                container.innerHTML = '';
+                
+                for (let i = 0; i < 10; i++) {
+                    const bar = document.createElement('div');
+                    bar.className = `wave-bar ${colorClass}`;
+                    bar.style.height = (Math.random() * 50 + 15) + 'px';
+                    bar.style.animationDelay = (i * 0.1) + 's';
+                    bar.setAttribute('aria-hidden', 'true');
+                    container.appendChild(bar);
+                }
+            } catch (error) {
+                console.warn('Error creating waveform:', error);
+            }
+        }
+
+        // Enhanced countdown logic with validation
+        const CONFIG = {
+            BPM: 132,
+            TARGET: new Date("2025-07-04T18:00:00Z").getTime(),
+            START: new Date("2025-05-27T00:00:00Z").getTime(),
+            UPDATE_INTERVAL: 1000
+        };
+
+        // Validate configuration
+        if (isNaN(CONFIG.TARGET) || isNaN(CONFIG.START)) {
+            console.error('Invalid date configuration');
+            showError('config-error');
+        }
+
+        let countdownInterval;
+
+        function updateCountdown() {
+            try {
+                const now = Date.now();
+                const diffMs = CONFIG.TARGET - now;
+                
+                const beatsElement = document.getElementById('beats-countdown');
+                const progressBar = document.getElementById('progress-bar');
+                const progressPercent = document.getElementById('progress-percent');
+
+                if (!beatsElement || !progressBar || !progressPercent) {
+                    throw new Error('Required countdown elements not found');
+                }
+
+                if (diffMs <= 0) {
+                    // Event has started or passed
+                    beatsElement.textContent = 'Event is live! 🎉';
+                    progressBar.style.width = '100%';
+                    progressBar.setAttribute('aria-valuenow', '100');
+                    progressPercent.textContent = '100.0% complete';
+                    
+                    // Track event completion
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'countdown_complete', {
+                            event_category: 'engagement'
+                        });
+                    }
+                    
+                    // Clear interval to prevent unnecessary updates
+                    if (countdownInterval) {
+                        clearInterval(countdownInterval);
+                    }
+                    return;
+                }
+
+                const totalMinutes = diffMs / 60000;
+                const totalBeats = Math.max(0, Math.floor(CONFIG.BPM * totalMinutes));
+
+                const totalDurationMs = CONFIG.TARGET - CONFIG.START;
+                const percent = 100 - (diffMs / totalDurationMs) * 100;
+                const progress = Math.min(100, Math.max(0, percent));
+
+                // Update DOM elements with enhanced formatting
+                beatsElement.textContent = `${totalBeats.toLocaleString()} beats to go`;
+                progressBar.style.width = progress + '%';
+                progressBar.setAttribute('aria-valuenow', Math.round(progress));
+                progressPercent.textContent = `${progress.toFixed(1)}% complete`;
+
+                // Track milestone events
+                if (typeof gtag !== 'undefined') {
+                    const milestones = [25, 50, 75, 90];
+                    const currentMilestone = milestones.find(m => 
+                        progress >= m && progress < m + 0.1
+                    );
+                    
+                    if (currentMilestone && !window.milestonesTracked) {
+                        window.milestonesTracked = {};
+                    }
+                    
+                    if (currentMilestone && !window.milestonesTracked[currentMilestone]) {
+                        gtag('event', 'countdown_milestone', {
+                            event_category: 'engagement',
+                            value: currentMilestone
+                        });
+                        window.milestonesTracked[currentMilestone] = true;
+                    }
+                }
+                
+            } catch (error) {
+                console.error('Error updating countdown:', error);
+                showError('countdown-error');
+            }
+        }
+
+        // Enhanced initialization with better error handling
+        function initializeApp() {
+            try {
+                // Create enhanced waveforms
+                createWaveform('leftWaveform', 'wave-cyan');
+                createWaveform('rightWaveform', 'wave-pink');
+                
+                // Start countdown
+                updateCountdown();
+                countdownInterval = setInterval(updateCountdown, CONFIG.UPDATE_INTERVAL);
+
+                // Set up progress bar attributes
+                const progressBar = document.getElementById('progress-bar');
+                if (progressBar) {
+                    progressBar.setAttribute('aria-valuemin', '0');
+                    progressBar.setAttribute('aria-valuemax', '100');
+                    progressBar.setAttribute('aria-valuenow', '0');
+                }
+
+                // Add entrance animation
+                document.body.classList.add('animate-fade-in');
+
+                // Track page view
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'page_view', {
+                        page_title: 'House of Techno - Loading v1',
+                        page_location: window.location.href
+                    });
+                }
+
+                console.log('House of Techno app initialized successfully');
+                
+            } catch (error) {
+                console.error('Error during initialization:', error);
+                showError('init-error');
+                
+                // Show fallback content
+                const fallbackElement = document.querySelector('.no-script-message');
+                if (fallbackElement) {
+                    fallbackElement.style.display = 'block';
+                }
+            }
+        }
+
+        // Initialize when DOM is loaded
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeApp);
+        } else {
+            initializeApp();
+        }
+
+        // Cleanup on page unload
+        window.addEventListener('beforeunload', function() {
+            if (countdownInterval) {
+                clearInterval(countdownInterval);
+            }
+        });
+
+        // Service Worker registration for PWA features (if manifest.json exists)
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js')
+                .then(function(registration) {
+                    console.log('ServiceWorker registration successful');
+                })
+                .catch(function(error) {
+                    console.log('ServiceWorker registration failed:', error);
+                });
+        }
+    </script>
+</body>
+</html>

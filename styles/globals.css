@@ -1,6 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 body {
   font-family: Arial, Helvetica, sans-serif;
@@ -84,11 +81,46 @@ body {
   }
 }
 
-@layer base {
-  * {
-    @apply border-border;
+.animate-fade-in {
+  animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-  body {
-    @apply bg-background text-foreground;
+
+  to {
+    opacity: 1;
   }
 }
+
+@layer base {
+
+
+.address-container {
+    display: flex;
+    justify-content: center;
+    /* Center horizontally */
+    align-items: center;
+    /* Center vertically */
+    height: 100vh;
+    /* Full viewport height */
+  }
+
+  .address {
+    font-size: 1.5rem;
+    /* Adjust font size if needed */
+    text-align: center;
+    /* Center text inside the element */
+  }
+
+  * {
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Replace with the actual border value */
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+}
+
