@@ -44,9 +44,9 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
-    <!-- Preload critical resources -->
-    <link rel="preload" href="optimized_images/hot_1_optimized.png" as="image">
-    <link rel="preload" href="optimized_images/hot_1.webp" as="image">
+    <!-- Preload critical resources with high priority -->
+    <link rel="preload" href="optimized_images/hot_1.webp" as="image" fetchpriority="high">
+    <link rel="preload" href="optimized_images/hot_1_optimized.png" as="image" fetchpriority="high">
     
     <!-- Performance hints for external domains -->
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
@@ -696,13 +696,14 @@
             <!-- Main logo -->
             <div class="logo-container">
                 <picture>
-                    <source srcset="optimized_images/hot_1.webp" type="image/webp">
+                    <source srcset="optimized_images/hot_1.webp" type="image/webp" fetchpriority="high">
                     <img
                         src="optimized_images/hot_1_optimized.png"
                         alt="House of Techno Logo - HoT electronic music event featuring DJ Sportsbra and keni.dj at The Balloon Pub, Bedford"
                         class="logo-img"
                         loading="eager"
                         decoding="async"
+                        fetchpriority="high"
                         width="512"
                         height="512"
                         onerror="this.style.display='none'; document.getElementById('fallback-logo').style.display='flex'; document.getElementById('fallback-logo').setAttribute('aria-label', 'House of Techno - HoT');"
