@@ -3,14 +3,14 @@
 ## 📋 Pre-Deployment Setup
 
 ### **Analytics & Tracking**
-- [ ] Replace `GA_MEASUREMENT_ID` in index.html with your actual Google Analytics ID
-- [ ] Set up Google Analytics 4 property
+- [x] Replace `GA_MEASUREMENT_ID` in index.html with your actual Google Analytics ID
+- [x] Set up Google Analytics 4 property
 - [ ] Configure Google Search Console
 - [ ] Set up conversion tracking for event sign-ups
 
 ### **Domain & SSL**
-- [ ] Domain pointing to correct hosting provider
-- [ ] SSL certificate installed and configured
+- [x] Domain pointing to correct hosting provider
+- [x] SSL certificate installed and configured
 - [ ] HTTPS redirect enabled (HTTP → HTTPS)
 - [ ] WWW redirect configured (www.houseoftechno.co.uk → houseoftechno.co.uk)
 
