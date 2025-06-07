@@ -1,6 +1,6 @@
 // House of Techno Service Worker
-const CACHE_NAME = 'hot-v1.0.0';
-const urlsToCache = [
+const CACHE_NAME = 'hot-v1-2025';
+const STATIC_CACHE = [
   '/',
   '/index.html',
   '/hot_1.png',
@@ -8,105 +8,69 @@ const urlsToCache = [
 ];
 
 // Install event - cache resources
-self.addEventListener('install', function(event) {
+self.addEventListener('install', event => {
+  console.log('HoT Service Worker installing...');
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then(function(cache) {
-        console.log('Cache opened');
-        return cache.addAll(urlsToCache);
+      .then(cache => {
+        console.log('Caching app shell');
+        return cache.addAll(STATIC_CACHE);
       })
-      .catch(function(error) {
-        console.error('Failed to cache resources:', error);
+      .then(() => {
+        console.log('HoT Service Worker installed');
+        return self.skipWaiting();
       })
-  );
-});
-
-// Fetch event - serve from cache, fallback to network
-self.addEventListener('fetch', function(event) {
-  event.respondWith(
-    caches.match(event.request)
-      .then(function(response) {
-        // Return cached version or fetch from network
-        if (response) {
-          return response;
-        }
-        
-        return fetch(event.request)
-          .then(function(response) {
-            // Check if valid response
-            if (!response || response.status !== 200 || response.type !== 'basic') {
-              return response;
-            }
-
-            // Clone the response
-            const responseToCache = response.clone();
-
-            caches.open(CACHE_NAME)
-              .then(function(cache) {
-                cache.put(event.request, responseToCache);
-              });
-
-            return response;
-          });
-      })
-      .catch(function() {
-        // Fallback for offline
-        if (event.request.destination === 'document') {
-          return caches.match('/index.html');
-        }
+      .catch(error => {
+        console.error('Service Worker install failed:', error);
       })
   );
 });
 
 // Activate event - clean up old caches
-self.addEventListener('activate', function(event) {
+self.addEventListener('activate', event => {
+  console.log('HoT Service Worker activating...');
   event.waitUntil(
-    caches.keys().then(function(cacheNames) {
-      return Promise.all(
-        cacheNames.map(function(cacheName) {
-          if (cacheName !== CACHE_NAME) {
-            console.log('Deleting old cache:', cacheName);
-            return caches.delete(cacheName);
-          }
-        })
-      );
-    })
+    caches.keys()
+      .then(cacheNames => {
+        return Promise.all(
+          cacheNames.map(cacheName => {
+            if (cacheName !== CACHE_NAME) {
+              console.log('Deleting old cache:', cacheName);
+              return caches.delete(cacheName);
+            }
+          })
+        );
+      })
+      .then(() => {
+        console.log('HoT Service Worker activated');
+        return self.clients.claim();
+      })
   );
 });
 
-// Background sync for offline actions (if needed)
-self.addEventListener('sync', function(event) {
-  if (event.tag === 'background-sync') {
-    event.waitUntil(
-      // Handle background sync
-      console.log('Background sync triggered')
-    );
-  }
-});
+// Fetch event - serve from cache, fallback to network
+self.addEventListener('fetch', event => {
+  if (event.request.method !== 'GET') return;
+  if (!event.request.url.startsWith(self.location.origin)) return;
 
-// Push notifications (for future features)
-self.addEventListener('push', function(event) {
-  if (event.data) {
-    const data = event.data.json();
-    const options = {
-      body: data.body,
-      icon: '/hot_1.png',
-      badge: '/hot_1.png',
-      tag: 'hot-notification',
-      vibrate: [200, 100, 200]
-    };
-    
-    event.waitUntil(
-      self.registration.showNotification(data.title, options)
-    );
-  }
-});
-
-// Handle notification clicks
-self.addEventListener('notificationclick', function(event) {
-  event.notification.close();
-  
-  event.waitUntil(
-    clients.openWindow('/')
+  event.respondWith(
+    caches.match(event.request)
+      .then(response => {
+        return response || fetch(event.request)
+          .then(fetchResponse => {
+            if (!fetchResponse || fetchResponse.status !== 200 || fetchResponse.type !== 'basic') {
+              return fetchResponse;
+            }
+            const responseToCache = fetchResponse.clone();
+            caches.open(CACHE_NAME)
+              .then(cache => cache.put(event.request, responseToCache));
+            return fetchResponse;
+          })
+          .catch(() => {
+            if (event.request.destination === 'document') {
+              return caches.match('/index.html');
+            }
+          });
+      })
   );
 });
