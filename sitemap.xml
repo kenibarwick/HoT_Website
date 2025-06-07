@@ -11,9 +11,14 @@
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://houseoftechno.co.uk/hot_1.png</image:loc>
-      <image:title>House of Techno Logo</image:title>
-      <image:caption>House of Techno Independence Day Event</image:caption>
+      <image:loc>https://houseoftechno.co.uk/optimized_images/hot_1_optimized.png</image:loc>
+      <image:title>House of Techno Logo - HoT Independence Day</image:title>
+      <image:caption>Bedford's biggest techno event featuring DJ Sportsbra and keni.dj at The Balloon Pub on July 4th, 2025</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://houseoftechno.co.uk/optimized_images/og-image.png</image:loc>
+      <image:title>House of Techno Social Media Image</image:title>
+      <image:caption>House of Techno Independence Day - July 4th 2025 at The Balloon Pub, Bedford</image:caption>
     </image:image>
   </url>
 </urlset>
