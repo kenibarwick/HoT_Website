@@ -1,1 +1,1 @@
-# HoT_Website
+# HoT Website
