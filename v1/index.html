@@ -658,6 +658,41 @@
         transform: rotate(360deg);
       }
     }
+
+    /* Progress Bar Styling for Beats Countdown */
+    .countdown-text {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #ff0066;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .progress-container {
+      width: 100%;
+      height: 12px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 6px;
+      overflow: hidden;
+      margin: 1rem 0;
+      border: 1px solid rgba(255, 0, 102, 0.3);
+    }
+
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, #ff0066, #ff6600);
+      border-radius: 6px;
+      transition: width 0.3s ease;
+      box-shadow: 0 0 10px rgba(255, 0, 102, 0.5);
+      width: 0%;
+    }
+
+    .progress-text {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #cccccc;
+      margin-top: 0.5rem;
+    }
   </style>
 </head>
 
@@ -669,6 +704,7 @@
       <ul class="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#lineup">Lineup</a></li>
+        <li><a href="#tickets">Tickets</a></li>
         <li><a href="#venue">Venue</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -716,6 +752,7 @@
       </div>
 
       <div class="cta-buttons">
+        <a href="#tickets" class="btn btn-primary pulse">GET TICKETS</a>
         <a href="#lineup" class="btn btn-secondary">VIEW LINEUP</a>
         <a href="#venue" class="btn btn-secondary">VENUE INFO</a>
       </div>
