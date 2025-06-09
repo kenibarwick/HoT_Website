@@ -21,9 +21,38 @@
     gtag("config", "G-WZRP1JQKH3");
   </script>
 
-  <!-- Google Maps API -->
-  <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhuhq0f84np_GKaj0OBM9LC4_WcMg1NFM&callback=initMap"></script>
+  <!-- Load API key configuration -->
+  <script src="config.js"></script>
+  
+  <!-- Google Maps API - dynamically loaded -->
+  <script>
+    // Load Google Maps API with key from config
+    window.addEventListener('DOMContentLoaded', function() {
+      if (window.GOOGLE_MAPS_CONFIG && window.GOOGLE_MAPS_CONFIG.apiKey !== 'YOUR_NEW_API_KEY_HERE') {
+        const script = document.createElement('script');
+        script.src = `https://maps.googleapis.com/maps/api/js?key=${window.GOOGLE_MAPS_CONFIG.apiKey}&callback=initMap`;
+        script.async = true;
+        script.defer = true;
+        document.head.appendChild(script);
+      } else {
+        console.warn('Google Maps API key not configured. Please update config.js');
+        // Show fallback content
+        document.getElementById('map').innerHTML = `
+          <div style="display: flex; align-items: center; justify-content: center; height: 100%; text-align: center; padding: 2rem;">
+            <div>
+              <h4 style="color: #ff0066; margin-bottom: 1rem;">📍 FIND THE REBELLION</h4>
+              <p><strong>The Balloon Pub</strong><br>52 Foster Hill Road<br>Bedford, MK40 2ET</p>
+              <a href="https://maps.google.com/search/?api=1&query=52.141843,-0.468487" 
+                 target="_blank" 
+                 style="color: #ff0066; text-decoration: none; margin-top: 1rem; display: inline-block;">
+                 📱 View in Google Maps →
+              </a>
+            </div>
+          </div>
+        `;
+      }
+    });
+  </script>
 
   <style>
     * {
