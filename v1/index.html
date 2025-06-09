@@ -308,6 +308,18 @@
       transform: scale(1.1);
     }
 
+    .social-logo {
+      width: 24px;
+      height: 24px;
+      filter: brightness(0) invert(1);
+      transition: all 0.3s ease;
+    }
+
+    .social-icon:hover .social-logo {
+      filter: brightness(0) invert(1);
+      transform: scale(1.1);
+    }
+
     /* Sections */
     .section {
       padding: 5rem 0;
@@ -722,13 +734,13 @@
   <!-- Social Media Icons -->
   <div class="social-icons">
     <a href="https://facebook.com/HoTEvents" class="social-icon" target="_blank" title="Facebook">
-      <i class="fab fa-facebook-f"></i>
+      <img src="images/icons8-facebook-logo-50.png" alt="Facebook" class="social-logo">
     </a>
     <a href="https://www.instagram.com/ourhouseoftechno" class="social-icon" target="_blank" title="Instagram">
-      <i class="fab fa-instagram"></i>
+      <img src="images/icons8-instagram-logo-50.png" alt="Instagram" class="social-logo">
     </a>
     <a href="https://x.com/houseoftechnouk" class="social-icon" target="_blank" title="X (Twitter)">
-      <i class="fab fa-x-twitter"></i>
+      <img src="images/icons8-x-logo-50.png" alt="X (Twitter)" class="social-logo">
     </a>
     <a href="https://soundcloud.com/HoTEvents" class="social-icon" target="_blank" title="SoundCloud">
       <i class="fab fa-soundcloud"></i>
@@ -1053,7 +1065,6 @@
   </div>
   </div>
   </section>
-  -->
 
   <!-- Contact Section -->
   <section class="section" id="contact">
