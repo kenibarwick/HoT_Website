@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
   <title>Bedford Techno Independence Day - July 4th - HoT Events</title>
   <meta name="description"
     content="Bedford's Techno Independence Day - July 4th at The Balloon Pub. DJ Sportsbra & keni.dj bringing underground beats to Bedford. Tickets available now!" />
@@ -614,66 +614,705 @@
       animation: fadeInUp 0.6s ease-out;
     }
 
-    /* Mobile Responsive */
+    /* Additional Mobile Utilities */
+    .contact-grid {
+      margin-bottom: 3rem;
+    }
+
+    .footer-grid {
+      margin-bottom: 2rem;
+    }
+
+    /* Fix any remaining overflow issues */
     @media (max-width: 768px) {
+      /* Global overflow prevention - Enhanced */
+      html, body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+      }
+
+      /* Fix the specific overlap issue shown in screenshot */
+      .hero::after {
+        content: '';
+        display: block;
+        height: 2rem;
+        clear: both;
+      }
+
+      /* Ensure sections start fresh */
+      section {
+        clear: both !important;
+        position: relative !important;
+        background: #0a0a0a !important;
+      }
+
+      /* Fix any wide content */
+      img, video, iframe {
+        max-width: 100% !important;
+        height: auto !important;
+      }
+
+      /* Fix text overflow */
+      p, h1, h2, h3, h4, h5, h6 {
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+      }
+
+      /* Fix any container that might be too wide */
+      .container, .section, .hero-content {
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+
+      /* Ensure buttons fit properly */
+      .btn {
+        word-wrap: break-word !important;
+        white-space: normal !important;
+      }
+
+      /* Fix artist cards and other cards */
+      .artist-card, .ticket-card, .faq-item {
+        margin: 0 0 1rem 0 !important;
+        width: 100% !important;
+      }
+
+      /* Fix special offer sections with specific mobile padding */
+      [style*="padding: 2rem"] {
+        padding: 1rem !important;
+      }
+
+      /* Fix contact method cards */
+      .contact-grid > div {
+        padding: 1rem !important;
+        margin: 0.5rem 0 !important;
+      }
+    }
+
+    /* Venue Info Grid */
+    .venue-info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    /* Footer Grid */
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    /* Contact Grid */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    /* Mobile Responsive - AGGRESSIVE OVERLAP FIXES */
+    @media (max-width: 768px) {
+      /* CRITICAL: Force sections to not overlap */
+      .hero {
+        position: relative !important;
+        z-index: 100 !important;
+        background: #0a0a0a !important;
+        border-bottom: 2px solid #0a0a0a !important;
+      }
+
+      .section {
+        position: relative !important;
+        z-index: 50 !important;
+        background: #0a0a0a !important;
+        clear: both !important;
+        display: block !important;
+        width: 100% !important;
+      }
+
+      /* CRITICAL: Prevent text bleeding through */
+      .hero-content {
+        position: relative !important;
+        z-index: 101 !important;
+        background: rgba(10, 10, 10, 0.95) !important;
+        padding: 2rem 1rem !important;
+        border-radius: 10px !important;
+        margin-bottom: 3rem !important;
+      }
+
+      /* Force complete separation between hero and lineup */
+      #lineup {
+        margin-top: 5rem !important;
+        padding-top: 4rem !important;
+        background: #0a0a0a !important;
+        position: relative !important;
+        z-index: 40 !important;
+        border-top: 3px solid #ff0066 !important;
+      }
+
+      /* Force single column layouts on mobile */
+      .venue-info-grid,
+      .footer-grid,
+      .contact-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+      }
+
+      /* HERO SECTION - Complete isolation */
+      .hero {
+        height: auto !important;
+        min-height: 100vh !important;
+        padding: 120px 0 100px 0 !important;
+        position: relative !important;
+        z-index: 100 !important;
+        background: #0a0a0a !important;
+        border-bottom: 2px solid #0a0a0a !important;
+        overflow: hidden !important;
+      }
+
+      .hero::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 50px;
+        background: #0a0a0a !important;
+        z-index: 105 !important;
+      }
+
+      .hero-content {
+        position: relative !important;
+        z-index: 101 !important;
+        background: rgba(10, 10, 10, 0.95) !important;
+        padding: 2rem 1rem !important;
+        border-radius: 10px !important;
+        margin-bottom: 3rem !important;
+        backdrop-filter: blur(10px) !important;
+      }
+
+      /* Hero Text - Prevent bleeding */
+      .hero h1 {
+        font-size: 1.8rem !important;
+        line-height: 1.1 !important;
+        margin-bottom: 1rem !important;
+        word-wrap: break-word !important;
+        position: relative !important;
+        z-index: 102 !important;
+      }
+
+      .hero-subtitle {
+        font-size: 0.9rem !important;
+        line-height: 1.2 !important;
+        padding: 0 0.5rem !important;
+        margin-bottom: 1rem !important;
+        position: relative !important;
+        z-index: 102 !important;
+      }
+
+      .hero-details {
+        font-size: 0.9rem !important;
+        padding: 0 0.5rem !important;
+        margin-bottom: 1.5rem !important;
+        position: relative !important;
+        z-index: 102 !important;
+      }
+
+      .hero-details p {
+        font-size: 0.9rem !important;
+        margin-bottom: 0.5rem !important;
+        position: relative !important;
+        z-index: 102 !important;
+      }
+
+      /* Hero bottom quote - fix spacing */
+      .hero-content > p:last-child {
+        font-size: 0.8rem !important;
+        margin-top: 1.5rem !important;
+        margin-bottom: 2rem !important;
+        padding: 0 1rem !important;
+        position: relative !important;
+        z-index: 102 !important;
+      }
+
+      /* NAVIGATION - High z-index */
+      .nav-container {
+        padding: 0 1rem !important;
+        position: relative !important;
+        z-index: 1000 !important;
+      }
+
+      /* Fix navigation */
       .nav-links {
-        display: none;
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: rgba(0, 0, 0, 0.98);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 3rem;
+        transition: left 0.3s ease;
+        z-index: 1999 !important;
+      }
+
+      .nav-links.active {
+        left: 0;
+      }
+
+      .nav-links a {
+        font-size: 1.2rem;
+        margin: 1rem 0;
+        padding: 1rem 2rem;
+        border: 1px solid rgba(255, 0, 102, 0.3);
+        border-radius: 25px;
+        width: 80%;
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        background: rgba(255, 0, 102, 0.2);
+        border-color: #ff0066;
       }
 
       .mobile-menu {
         display: flex;
+        z-index: 2000 !important;
+        position: relative !important;
       }
 
+      .mobile-menu.active .hamburger:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+      }
+
+      .mobile-menu.active .hamburger:nth-child(2) {
+        opacity: 0;
+      }
+
+      .mobile-menu.active .hamburger:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+      }
+
+      /* Hero Section Mobile - Fix overlapping */
+      .hero {
+        height: auto !important;
+        min-height: 100vh !important;
+        padding: 100px 0 80px 0 !important;
+        display: flex !important;
+        align-items: flex-start !important;
+        padding-top: 120px !important;
+      }
+
+      .hero-content {
+        padding: 0 1rem !important;
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+
+      /* Hero Text Mobile */
       .hero h1 {
-        font-size: 2.5rem;
+        font-size: 1.8rem !important;
+        line-height: 1.1 !important;
+        margin-bottom: 1rem !important;
+        word-wrap: break-word !important;
       }
 
       .hero-subtitle {
-        font-size: 1.2rem;
+        font-size: 0.9rem !important;
+        line-height: 1.2 !important;
+        padding: 0 0.5rem !important;
+        margin-bottom: 1rem !important;
       }
 
-      .countdown-timer {
-        gap: 1rem;
+      .hero-details {
+        font-size: 0.9rem !important;
+        padding: 0 0.5rem !important;
+        margin-bottom: 1.5rem !important;
       }
 
-      .time-unit {
-        min-width: 60px;
-        padding: 0.5rem;
+      .hero-details p {
+        font-size: 0.9rem !important;
+        margin-bottom: 0.5rem !important;
       }
 
-      .time-number {
-        font-size: 1.5rem;
+      /* Hero bottom quote - fix spacing */
+      .hero-content > p:last-child {
+        font-size: 0.8rem !important;
+        margin-top: 1.5rem !important;
+        margin-bottom: 2rem !important;
+        padding: 0 1rem !important;
       }
 
+      /* COUNTDOWN - Prevent bleeding */
+      .countdown {
+        padding: 1rem !important;
+        margin: 1.5rem 0 !important;
+        position: relative !important;
+        z-index: 102 !important;
+        background: rgba(10, 10, 10, 0.9) !important;
+        border-radius: 10px !important;
+      }
+
+      .countdown h3 {
+        font-size: 1rem !important;
+        margin-bottom: 1rem !important;
+        position: relative !important;
+        z-index: 103 !important;
+      }
+
+      .countdown-text {
+        font-size: 1rem !important;
+        padding: 0 0.5rem !important;
+        text-align: center !important;
+        margin-bottom: 1rem !important;
+        position: relative !important;
+        z-index: 103 !important;
+      }
+
+      /* BUTTONS - High z-index and isolation */
       .cta-buttons {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: column !important;
+        align-items: center !important;
+        padding: 0 1rem !important;
+        margin: 2rem 0 4rem 0 !important;
+        gap: 1rem !important;
+        position: relative !important;
+        z-index: 102 !important;
+        background: rgba(10, 10, 10, 0.95) !important;
+        border-radius: 15px !important;
+        padding: 2rem 1rem !important;
       }
 
       .btn {
-        width: 80%;
-        max-width: 300px;
+        width: 85% !important;
+        max-width: 280px !important;
+        margin: 0 !important;
+        padding: 12px 20px !important;
+        min-height: 44px !important;
+        font-size: 0.9rem !important;
+        position: relative !important;
+        z-index: 103 !important;
       }
 
+      /* SECTION SEPARATION - Critical */
+      .section:first-of-type {
+        margin-top: 6rem !important;
+        padding-top: 4rem !important;
+        position: relative !important;
+        z-index: 40 !important;
+      }
+
+      .section h2 {
+        font-size: 1.6rem !important;
+        margin-bottom: 1.5rem !important;
+        padding-top: 2rem !important;
+        z-index: 45 !important;
+        position: relative !important;
+        background: #0a0a0a !important;
+        border-radius: 10px !important;
+        padding: 1rem !important;
+      }
+
+      /* Social Icons Mobile */
       .social-icons {
-        position: static;
-        flex-direction: row;
-        justify-content: center;
-        margin: 2rem 0;
-        transform: none;
+        position: static !important;
+        flex-direction: row !important;
+        justify-content: center !important;
+        margin: 2rem 0 !important;
+        transform: none !important;
+        right: auto !important;
+        top: auto !important;
+      }
+
+      .social-icon {
+        width: 45px !important;
+        height: 45px !important;
+        min-width: 44px !important;
+        min-height: 44px !important;
+      }
+
+      /* Section Layouts Mobile - Fix overlapping */
+      .section {
+        padding: 2rem 1rem !important;
+        margin-bottom: 1rem !important;
+        position: relative !important;
+        z-index: 5 !important;
+      }
+
+      /* Specific fix for lineup section (REVOLUTIONARIES) */
+      #lineup {
+        margin-top: 3rem !important;
+        padding-top: 3rem !important;
+        clear: both !important;
+      }
+
+      /* Fix any paragraph that might be overlapping */
+      .section p {
+        font-size: 0.9rem !important;
+        line-height: 1.4 !important;
+        margin-bottom: 1rem !important;
+        padding: 0 0.5rem !important;
       }
 
       .venue-info {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
       }
 
-      .section {
-        padding: 3rem 1rem;
+      .map-placeholder {
+        height: 300px !important;
+        margin-top: 1rem !important;
       }
 
       .artist-grid,
       .ticket-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+      }
+
+      /* Venue Features Mobile */
+      .venue-feature {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 0.5rem !important;
+        margin-bottom: 1.5rem !important;
+      }
+
+      .venue-feature .feature-icon {
+        align-self: center !important;
+      }
+
+      /* Forms Mobile */
+      .contact-form {
+        margin: 0 !important;
+        padding: 1.5rem !important;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        padding: 0.8rem !important;
+        font-size: 16px !important; /* Prevents zoom on iOS */
+      }
+
+      /* FAQ Mobile */
+      .faq-question {
+        min-height: 44px !important;
+        padding: 1rem !important;
+      }
+    }
+
+    /* Extra Small Screens - Enhanced */
+    @media (max-width: 480px) {
+      /* Hero adjustments for very small screens */
+      .hero {
+        padding: 100px 0 60px 0 !important;
+      }
+
+      .hero h1 {
+        font-size: 1.5rem !important;
+        line-height: 1.1 !important;
+      }
+      
+      .hero-subtitle {
+        font-size: 0.8rem !important;
+        padding: 0 0.5rem !important;
+      }
+      
+      .hero-details {
+        font-size: 0.8rem !important;
+      }
+
+      .hero-content > p:last-child {
+        font-size: 0.7rem !important;
+        margin-top: 1rem !important;
+      }
+      
+      .countdown-text {
+        font-size: 0.9rem !important;
+      }
+
+      .countdown {
+        padding: 0.8rem !important;
+        margin: 1rem 0 !important;
+      }
+
+      .time-unit {
+        min-width: 45px !important;
+        padding: 0.2rem !important;
+      }
+
+      .time-number {
+        font-size: 1rem !important;
+      }
+
+      .btn {
+        font-size: 0.8rem !important;
+        padding: 10px 16px !important;
+      }
+      
+      .nav-container {
+        padding: 0 1rem !important;
+      }
+      
+      .logo-img {
+        height: 32px !important;
+      }
+
+      .section {
+        padding: 1.5rem 0.5rem !important;
+      }
+
+      .section h2 {
+        font-size: 1.4rem !important;
+      }
+
+      /* Extra space for very small screens */
+      #lineup {
+        margin-top: 4rem !important;
+        padding-top: 4rem !important;
+      }
+
+      /* Force all grids to single column on very small screens */
+      .venue-info-grid,
+      .footer-grid,
+      .contact-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+      }
+    }
+
+      /* Mobile Touch Optimizations */
+      /* Improve touch targets */
+      .btn {
+        min-height: 44px;
+        padding: 12px 24px;
+      }
+      
+      .social-icon {
+        min-width: 44px;
+        min-height: 44px;
+      }
+      
+      .faq-question {
+        min-height: 44px;
+        padding: 1rem;
+      }
+      
+      /* Prevent horizontal scroll */
+      .hero-content,
+      .section {
+        overflow-x: hidden;
+      }
+      
+      /* Improve text readability */
+      body {
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+      }
+    }
+
+    /* Reduce motion for users who prefer it */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* CRITICAL MOBILE OVERLAP FIX - HIGHEST PRIORITY */
+    @media (max-width: 768px) {
+      /* EMERGENCY OVERLAP PREVENTION */
+      .hero {
+        position: relative !important;
+        z-index: 1000 !important;
+        background: #0a0a0a !important;
+        padding-bottom: 100px !important;
+        margin-bottom: 50px !important;
+        border-bottom: 5px solid #ff0066 !important;
+      }
+
+      .hero-content {
+        position: relative !important;
+        z-index: 1001 !important;
+        background: rgba(10, 10, 10, 0.98) !important;
+        border: 2px solid #ff0066 !important;
+        border-radius: 15px !important;
+        padding: 2rem 1rem !important;
+      }
+
+      .cta-buttons {
+        position: relative !important;
+        z-index: 1002 !important;
+        background: rgba(10, 10, 10, 0.98) !important;
+        border: 2px solid #ff6600 !important;
+        border-radius: 15px !important;
+        padding: 2rem 1rem !important;
+        margin-bottom: 50px !important;
+      }
+
+      /* FORCE SECTION SEPARATION */
+      section {
+        position: relative !important;
+        z-index: 500 !important;
+        background: #0a0a0a !important;
+        margin-top: 3rem !important;
+        padding-top: 3rem !important;
+        border-top: 3px solid #ff0066 !important;
+        clear: both !important;
+        display: block !important;
+      }
+
+      #lineup {
+        position: relative !important;
+        z-index: 400 !important;
+        background: #0a0a0a !important;
+        margin-top: 8rem !important;
+        padding-top: 5rem !important;
+        border-top: 5px solid #ff0066 !important;
+      }
+
+      .section h2 {
+        position: relative !important;
+        z-index: 501 !important;
+        background: #0a0a0a !important;
+        border: 2px solid #ff0066 !important;
+        border-radius: 10px !important;
+        padding: 1rem !important;
+        margin-bottom: 2rem !important;
+      }
+
+      /* PREVENT ANY TEXT BLEEDING */
+      p, span, div {
+        position: relative !important;
+        z-index: 450 !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+      }
+
+      /* ABSOLUTE POSITIONING PREVENTION */
+      * {
+        position: relative !important;
+        overflow: visible !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+      }
+
+      /* FORCE PROPER LAYERING */
+      nav {
+        z-index: 9999 !important;
+      }
+
+      .nav-links {
+        z-index: 9998 !important;
+      }
+
+      .mobile-menu {
+        z-index: 9997 !important;
       }
     }
 
@@ -959,12 +1598,7 @@
       <h3 style="color: #ff6600; margin-bottom: 1rem">
         🚨 IMPORTANT VENUE INFO
       </h3>
-      <div style="
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
-          ">
+      <div class="venue-info-grid">
         <div>
           <strong>Age Policy:</strong><br />
           18+ only with valid ID
@@ -1112,12 +1746,7 @@
           line!
         </p>
 
-        <div style="
-              display: grid;
-              grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-              gap: 2rem;
-              margin-bottom: 3rem;
-            ">
+        <div class="contact-grid">
           <div style="
                 background: rgba(255, 0, 102, 0.1);
                 padding: 1.5rem;
@@ -1172,12 +1801,7 @@
   <!-- Footer -->
   <footer>
     <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem">
-      <div style="
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-          ">
+      <div class="footer-grid">
         <div>
           <h4 style="color: #ff0066; margin-bottom: 1rem">HoT Events</h4>
           <p>
@@ -1395,14 +2019,49 @@
       event.target.reset();
     }
 
-    // Mobile Menu Toggle
-    document
-      .getElementById("mobile-menu")
-      .addEventListener("click", function () {
-        const navLinks = document.querySelector(".nav-links");
-        navLinks.style.display =
-          navLinks.style.display === "flex" ? "none" : "flex";
-      });
+    // Mobile Menu Toggle - Enhanced version with better error handling
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenuBtn = document.getElementById("mobile-menu");
+      const navLinks = document.querySelector(".nav-links");
+      
+      if (mobileMenuBtn && navLinks) {
+        mobileMenuBtn.addEventListener("click", function(e) {
+          e.preventDefault();
+          console.log('Mobile menu clicked'); // Debug log
+          
+          navLinks.classList.toggle("active");
+          mobileMenuBtn.classList.toggle("active");
+          
+          // Prevent body scroll when menu is open
+          if (navLinks.classList.contains("active")) {
+            document.body.style.overflow = "hidden";
+          } else {
+            document.body.style.overflow = "";
+          }
+        });
+
+        // Close menu when clicking on a nav link
+        const navLinksItems = navLinks.querySelectorAll("a");
+        navLinksItems.forEach(link => {
+          link.addEventListener("click", function() {
+            navLinks.classList.remove("active");
+            mobileMenuBtn.classList.remove("active");
+            document.body.style.overflow = "";
+          });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener("click", function(e) {
+          if (!mobileMenuBtn.contains(e.target) && !navLinks.contains(e.target)) {
+            navLinks.classList.remove("active");
+            mobileMenuBtn.classList.remove("active");
+            document.body.style.overflow = "";
+          }
+        });
+      } else {
+        console.error('Mobile menu elements not found');
+      }
+    });
 
     // Intersection Observer for animations
     const observerOptions = {

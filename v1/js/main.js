@@ -1,7 +1,7 @@
 // Mobile Navigation Toggle
 document.addEventListener('DOMContentLoaded', function() {
     const mobileMenu = document.getElementById('mobile-menu');
-    const navMenu = document.getElementById('nav-menu');
+    const navMenu = document.querySelector('.nav-links'); // Fixed selector to match HTML
     
     if (mobileMenu && navMenu) {
         mobileMenu.addEventListener('click', function() {
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Close mobile menu when clicking on a link
-    const navLinks = document.querySelectorAll('.nav-link');
+    const navLinks = document.querySelectorAll('.nav-links a'); // Updated selector
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             navMenu.classList.remove('active');
