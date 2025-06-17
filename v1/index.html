@@ -1259,7 +1259,12 @@
         </div>
       </div>
 
-      <form class="contact-form" onsubmit="submitContactForm(event)">
+      <form class="contact-form" action="https://formspree.io/f/mqablejb" method="POST">
+        <!-- Hidden fields for Formspree -->
+        <input type="hidden" name="_subject" value="Bedford Techno Independence Day - Quick Contact">
+        <input type="hidden" name="_next" value="/?success=true">
+        <input type="hidden" name="_replyto" id="index-replyto">
+        
         <div class="form-group">
           <label for="name">Name *</label>
           <input type="text" id="name" name="name" required />
@@ -1267,7 +1272,8 @@
 
         <div class="form-group">
           <label for="email">Email *</label>
-          <input type="email" id="email" name="email" required />
+          <input type="email" id="email" name="email" required onchange="document.getElementById('index-replyto').value = this.value" />
+        </div>
         </div>
 
         <div class="form-group">
@@ -1461,26 +1467,16 @@
       }
     }
 
-    // Contact form submission
-    function submitContactForm(event) {
-      event.preventDefault();
-
-      const formData = new FormData(event.target);
-      const data = Object.fromEntries(formData);
-
-      // Simple validation
-      if (!data.name || !data.email || !data.message) {
-        alert('Please fill in all required fields.');
-        return;
-      }
-
-      // For now, just show a success message
-      alert('Thanks for your message! We\'ll get back to you soon about the Bedford Techno Revolution! 🔥');
-      event.target.reset();
-    }
-
     // Initialize everything when DOM is loaded
     document.addEventListener('DOMContentLoaded', function () {
+      // Check for success parameter in URL
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('success') === 'true') {
+        alert('Thanks for your message! We\'ll get back to you soon about the Bedford Techno Revolution! 🔥');
+        // Clean URL
+        window.history.replaceState({}, document.title, window.location.pathname);
+      }
+
       initializeCountdown();
 
       // Smooth scrolling for navigation links
