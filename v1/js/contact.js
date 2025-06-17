@@ -1,47 +1,57 @@
 // Contact Page Functionality
 document.addEventListener('DOMContentLoaded', function() {
+    // Check for success parameter in URL
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('success') === 'true') {
+        showMessage('success', 'Thank you! Your message has been sent successfully. We\'ll get back to you soon.');
+        // Clean URL
+        window.history.replaceState({}, document.title, window.location.pathname);
+    }
+
     // Contact Form Handling
     const contactForm = document.getElementById('contact-form');
     const submitBtn = contactForm.querySelector('.submit-btn');
     const btnText = submitBtn.querySelector('.btn-text');
     const btnIcon = submitBtn.querySelector('.btn-icon');
+    const emailField = document.getElementById('email');
+    const replytoField = document.getElementById('replyto');
     
+    // Sync email with hidden replyto field
+    emailField.addEventListener('input', function() {
+        replytoField.value = this.value;
+    });
+
     contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
+        // Validate form before submission
+        const isValid = validateForm();
+        
+        if (!isValid) {
+            e.preventDefault();
+            showMessage('error', 'Please fill in all required fields correctly.');
+            return;
+        }
         
         // Show loading state
         submitBtn.disabled = true;
         btnText.textContent = 'Sending...';
         btnIcon.className = 'fas fa-spinner fa-spin btn-icon';
         
-        // Get form data
-        const formData = new FormData(contactForm);
-        const data = {
-            firstName: formData.get('firstName'),
-            lastName: formData.get('lastName'),
-            email: formData.get('email'),
-            phone: formData.get('phone'),
-            subject: formData.get('subject'),
-            message: formData.get('message'),
-            newsletter: formData.get('newsletter') === 'on',
-            privacy: formData.get('privacy') === 'on'
-        };
-        
-        // Simulate form submission (replace with actual endpoint)
-        setTimeout(() => {
-            // Show success message
-            showMessage('success', 'Message sent successfully! We\'ll get back to you soon.');
-            
-            // Reset form
-            contactForm.reset();
-            
-            // Reset button
-            submitBtn.disabled = false;
-            btnText.textContent = 'Send Message';
-            btnIcon.className = 'fas fa-paper-plane btn-icon';
-            
-        }, 2000);
+        // Let Formspree handle the actual submission
+        // Form will redirect to success page automatically
     });
+
+    function validateForm() {
+        const requiredFields = contactForm.querySelectorAll('[required]');
+        let isValid = true;
+        
+        requiredFields.forEach(field => {
+            if (!validateField(field)) {
+                isValid = false;
+            }
+        });
+        
+        return isValid;
+    }
     
     // Form validation
     const requiredFields = contactForm.querySelectorAll('[required]');

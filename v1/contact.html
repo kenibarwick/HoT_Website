@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +8,15 @@
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
     <title>Contact - Bedford Techno Independence Day</title>
-    <meta name="description" content="Get in touch with Bedford Techno Independence Day organizers. Contact form, phone, email, and social media.">
+    <meta name="description"
+        content="Get in touch with Bedford Techno Independence Day organizers. Contact form, phone, email, and social media.">
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar">
@@ -20,8 +25,8 @@
                 <div class="hot-branding">
                     <div class="hot-logo">
                         <a href="https://houseoftechno.co.uk" target="_blank" rel="noopener noreferrer">
-                            <img src="images/hot-logo.png" alt="House of Techno" class="hot-logo-img" 
-                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <img src="images/hot-logo.png" alt="House of Techno" class="hot-logo-img"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                             <div class="hot-logo-fallback" style="display: none;">
                                 <span class="hot-text">H</span>
                                 <span class="hot-text">o</span>
@@ -81,7 +86,8 @@
                         <h3>Event Location</h3>
                         <p>The Balloon Pub</p>
                         <p>High Street, Bedford MK40 1RU</p>
-                        <a href="https://maps.google.com/maps?q=The+Balloon+Pub+Bedford" target="_blank" class="contact-link">Get Directions</a>
+                        <a href="https://maps.google.com/maps?q=The+Balloon+Pub+Bedford" target="_blank"
+                            class="contact-link">Get Directions</a>
                     </div>
 
                     <div class="contact-card">
@@ -98,7 +104,7 @@
             <div class="contact-form-section">
                 <h2>Send Us A Message</h2>
                 <div class="form-container">
-                    <form class="contact-form" id="contact-form">
+                    <form class="contact-form" id="contact-form" action="https://formspree.io/f/mqablejb" method="POST">
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="firstName">First Name *</label>
@@ -109,6 +115,12 @@
                                 <input type="text" id="lastName" name="lastName" required>
                             </div>
                         </div>
+
+                        <!-- Hidden fields for Formspree -->
+                        <input type="hidden" name="_subject" value="Bedford Techno Independence Day - Contact Form">
+                        <input type="hidden" name="_next" value="/contact.html?success=true">
+                        <input type="hidden" name="_replyto" id="replyto">
+                        <input type="hidden" name="_cc" value="info@bedfordtechnoday.com">
 
                         <div class="form-row">
                             <div class="form-group">
@@ -128,7 +140,8 @@
                                 <option value="general">General Inquiry</option>
                                 <option value="tickets">Ticket Support</option>
                                 <option value="group">Group Booking</option>
-                                <option value="accessibility">Accessibility Requirements</option>                                <option value="media">Media/Press</option>
+                                <option value="accessibility">Accessibility Requirements</option>
+                                <option value="media">Media/Press</option>
                                 <option value="partnership">Partnership Opportunity</option>
                                 <option value="other">Other</option>
                             </select>
@@ -136,7 +149,8 @@
 
                         <div class="form-group">
                             <label for="message">Message *</label>
-                            <textarea id="message" name="message" rows="6" required placeholder="Tell us how we can help you..."></textarea>
+                            <textarea id="message" name="message" rows="6" required
+                                placeholder="Tell us how we can help you..."></textarea>
                         </div>
 
                         <div class="form-group checkbox-group">
@@ -188,7 +202,7 @@
                             <h4>Twitter</h4>
                             <p>Live updates & news</p>
                         </div>
-                    </a>                    <a href="#" class="social-card soundcloud">
+                    </a> <a href="#" class="social-card soundcloud">
                         <i class="fab fa-soundcloud"></i>
                         <div>
                             <h4>SoundCloud</h4>
@@ -211,7 +225,8 @@
                         </div>
                     </div>
                     <div class="emergency-note">
-                        <p><strong>Note:</strong> For medical emergencies, always call 999 first. The emergency hotline is for event-related issues only.</p>
+                        <p><strong>Note:</strong> For medical emergencies, always call 999 first. The emergency hotline
+                            is for event-related issues only.</p>
                     </div>
                 </div>
             </div>
@@ -254,4 +269,5 @@
     <script src="js/contact.js"></script>
     <script src="js/main.js"></script>
 </body>
+
 </html>
