@@ -24,24 +24,21 @@
   <!-- Error handling to prevent console errors -->
   <script>
     // Global error handler to prevent console spam
-    window.addEventListener('error', function(e) {
+    window.addEventListener('error', function (e) {
       // Suppress Google Maps API errors since we're using iframe embeds
       if (e.message && (e.message.includes('Google') || e.message.includes('google') || e.message.includes('Maps'))) {
         e.preventDefault();
         return false;
       }
     });
-    
+
     // Prevent unhandled promise rejections
-    window.addEventListener('unhandledrejection', function(e) {
+    window.addEventListener('unhandledrejection', function (e) {
       if (e.reason && typeof e.reason === 'string' && e.reason.includes('google')) {
         e.preventDefault();
       }
     });
   </script>
-
-  <!-- Map now uses iframe embed - Google Maps API removed -->
-  <!-- Removed config.js loading as it's not needed for iframe embeds -->
 
   <style>
     * {
@@ -53,7 +50,8 @@
     body {
       font-family: "Arial", sans-serif;
       background: #0a0a0a;
-      color: #ffffff !important; /* Force white text globally */
+      color: #ffffff !important;
+      /* Force white text globally */
       line-height: 1.6;
     }
 
@@ -67,6 +65,7 @@
       z-index: 1000;
       padding: 1rem 0;
       transition: background 0.3s ease;
+      min-height: 70px;
     }
 
     nav.scrolled {
@@ -120,19 +119,6 @@
       color: #ff0066;
     }
 
-    .mobile-menu {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-    }
-
-    .hamburger {
-      width: 25px;
-      height: 3px;
-      background: #ffffff;
-      margin: 3px 0;
-      transition: 0.3s;
-    }
 
     /* Hero Section */
     .hero {
@@ -191,12 +177,13 @@
     }
 
     .countdown-text {
-      font-size: 1.5rem;
+      font-size: 2.2rem;
       font-family: 'Courier New', monospace;
       margin-bottom: 2rem;
-      color: #06b6d4;
-      text-shadow: 0 0 10px rgba(6, 182, 212, 0.3);
-      font-weight: 600;
+      color: #ff0066;
+      text-shadow: 0 0 10px rgba(255, 0, 102, 0.3);
+      font-weight: 700;
+      text-align: center;
     }
 
     .progress-container {
@@ -310,7 +297,7 @@
     /* Social Icons */
     .social-icons {
       position: fixed;
-      right: 2rem;
+      right: 4rem;
       top: 50%;
       transform: translateY(-50%);
       display: flex;
@@ -362,7 +349,8 @@
       font-size: 2.5rem;
       text-align: center;
       margin-bottom: 3rem;
-      color: #ff0066; /* Fallback color for compatibility */
+      color: #ff0066;
+      /* Fallback color for compatibility */
       background: linear-gradient(45deg, #ff0066, #ff6600);
       -webkit-background-clip: text;
       background-clip: text;
@@ -607,26 +595,6 @@
       animation: fadeInUp 0.6s ease-out;
     }
 
-    /* Global overflow prevention - Enhanced */
-    @media (max-width: 768px) {
-      html, body {
-        overflow-x: hidden;
-        width: 100%;
-        position: relative;
-      }
-
-      /* Fix any wide content */
-      * {
-        max-width: 100%;
-        box-sizing: border-box;
-      }
-
-      /* Fix text overflow */
-      p, h1, h2, h3, h4, h5, h6 {
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-      }
-    }
 
     /* Venue Info Grid */
     .venue-info-grid {
@@ -651,130 +619,48 @@
       gap: 2rem;
     }
 
-    /* Mobile Responsive - Clean and Simple */
+    /* Extra Small Screens */
     @media (max-width: 768px) {
-      /* Global text visibility */
-      body {
-        color: #ffffff;
+
+      .hide-mobile {
+        display: none;
       }
 
-      /* Section headings - ensure visibility on mobile */
-      .section h2 {
-        color: #ff0066 !important;
-        font-size: 1.8rem;
-        margin-bottom: 2rem;
-        text-align: center;
-        background: none !important; /* Remove gradient on mobile */
-        -webkit-background-clip: initial !important;
-        background-clip: initial !important;
-        -webkit-text-fill-color: #ff0066 !important; /* Override transparent text */
-        border: none;
-        padding: 0;
-        text-shadow: none;
-        position: relative;
-        filter: none !important;
-        opacity: 1 !important;
-        visibility: visible !important;
+      /* Make venue section full width when map is hidden */
+      .venue-info {
         display: block !important;
-        transform: none !important;
+        grid-template-columns: none !important;
       }
 
-      /* Ensure no pseudo-elements on headings */
-      .section h2::before,
-      .section h2::after {
-        display: none !important;
-        content: none !important;
+      .venue-details {
+        width: 100% !important;
+        max-width: none !important;
+        margin-right: 0 !important;
       }
 
-      /* Hero section adjustments */
-      .hero {
-        height: auto;
-        min-height: 100vh;
-        padding: 120px 0 50px 0;
-      }
-
-      .hero-content {
-        background: rgba(10, 10, 10, 0.95);
-        padding: 2rem 1rem;
-        border-radius: 10px;
-        margin: 0 1rem;
-      }
-
-      .hero h1 {
-        font-size: 1.8rem;
-        line-height: 1.2;
-      }
-
-      /* Navigation */
-      .nav-container {
-        padding: 0 1rem;
-      }
-
-      .nav-links {
-        position: fixed;
-        top: 70px;
-        left: -100%;
-        width: 100%;
-        height: calc(100vh - 70px);
-        background: rgba(0, 0, 0, 0.98);
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        padding-top: 2rem;
-        transition: left 0.3s ease;
-      }
-
-      .nav-links.active {
-        left: 0;
-      }
-
-      .mobile-menu {
-        display: flex;
-      }
-
-      /* Social icons adjustments */
-      .social-icons {
-        display: none;
-      }
-
-      /* Mobile social icons hidden to fix UX issues */
-      .social-icons-mobile {
-        display: none;
-      }
-
-      /* Layout grids */
-      .venue-info,
-      .artist-grid,
-      .ticket-grid,
-      .venue-info-grid,
-      .footer-grid,
-      .contact-grid {
-        grid-template-columns: 1fr;
+      .venue-info-grid {
+        grid-template-columns: 1fr !important;
         gap: 1.5rem;
       }
 
-      /* Buttons */
-      .btn {
-        width: 100%;
-        max-width: 280px;
-        min-height: 44px;
-      }
-
-      .cta-buttons {
-        flex-direction: column;
-        align-items: center;
-      }
-    }
-
-    /* Extra Small Screens */
-    @media (max-width: 480px) {
       .hero {
-        padding: 90px 0 40px 0;
+        padding: 200px 0 40px 0;
+        min-height: calc(100vh - 80px);
       }
+
+      .hero-content {
+        margin-top: 40px;
+        padding: 1rem;
+      }
+
+
 
       .hero h1 {
         font-size: 1.5rem;
         line-height: 1.2;
+        color: #ffffff !important;
+        -webkit-text-fill-color: #ffffff !important;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
       }
 
       .hero-subtitle {
@@ -786,7 +672,7 @@
       }
 
       .countdown-text {
-        font-size: 1rem;
+        font-size: 1.4rem;
       }
 
       .countdown {
@@ -809,10 +695,51 @@
 
       .nav-container {
         padding: 0 0.5rem;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .nav-links {
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .nav-links a {
+        padding: 0.5rem;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        font-size: 0.9rem;
       }
 
       .logo-img {
         height: 30px;
+      }
+
+      nav {
+        min-height: 80px;
+        padding: 0.5rem 0;
+      }
+
+      @media (max-width: 480px) {
+        .nav-container {
+          flex-direction: column;
+          align-items: center;
+          gap: 0.5rem;
+        }
+
+        .nav-links {
+          justify-content: center;
+          gap: 0.8rem;
+        }
+
+        .hero {
+          padding: 300px 0 40px 0;
+        }
+
+        nav {
+          min-height: 100px;
+        }
       }
 
       .section {
@@ -829,12 +756,29 @@
         margin-top: 2rem;
         padding-top: 2rem;
       }
+
+      /* Move social icons to bottom for mobile */
+      .social-icons {
+        position: fixed;
+        right: 1rem;
+        bottom: 2rem;
+        top: auto;
+        transform: none;
+        flex-direction: row;
+        gap: 0.5rem;
+      }
+
+      .social-icon {
+        width: 40px;
+        height: 40px;
+      }
     }
 
     /* Mobile Touch Optimizations */
     .btn {
       min-height: 44px;
       padding: 12px 24px;
+      font-size: 1rem;
     }
 
     .social-icon {
@@ -842,9 +786,24 @@
       min-height: 44px;
     }
 
+    /* Ensure all clickable elements are properly sized for mobile */
+    .nav-links a,
+    .logo {
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+    }
+
     .faq-question {
       min-height: 44px;
       padding: 1rem;
+    }
+
+    /* Tablet adjustments for social icons */
+    @media (max-width: 768px) and (min-width: 481px) {
+      .social-icons {
+        right: 1.5rem;
+      }
     }
 
     /* Prevent horizontal scroll */
@@ -958,17 +917,12 @@
         <img src="images/hot-logo.png" alt="HoT" class="logo-img">
       </a>
       <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
         <li><a href="#lineup">Lineup</a></li>
         <li><a href="#venue">Venue</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <div class="mobile-menu" id="mobile-menu">
-        <div class="hamburger"></div>
-        <div class="hamburger"></div>
-        <div class="hamburger"></div>
-      </div>
+      <!-- Mobile menu removed for better responsive design -->
     </div>
   </nav>
 
@@ -988,15 +942,12 @@
   <!-- Hero Section -->
   <section class="hero" id="home">
     <div class="hero-content">
-      <h1>BEDFORD'S TECHNO INDEPENDENCE DAY</h1>
-      <div class="hero-subtitle">
-        🇬🇧 BEDFORD'S INDEPENDENCE FROM NAFF MUSIC 🇬🇧
-      </div>
+      <h1>🇬🇧 BEDFORD'S TECHNO INDEPENDENCE DAY 🇬🇧</h1>
       <div class="hero-details">
         <p><strong>July 4th, 2025 | From 6PM</strong></p>
         <p>The Balloon Pub | Epic Marquee Setup</p>
         <p style="font-size: 1.4rem; color: #ff0066; font-weight: bold; margin: 1rem 0;">
-          🎉 FREE ENTRY - NO TICKETS REQUIRED 🎉
+          🎉 FREE ENTRY 🎉
         </p>
         <p>
           Featuring
@@ -1020,17 +971,17 @@
       <div class="cta-buttons">
         <a href="#lineup" class="btn btn-primary pulse">FREE ENTRY</a>
         <a href="#venue" class="btn btn-secondary">VENUE INFO</a>
-        <a href="#contact" class="btn btn-secondary">GET IN TOUCH</a>
+        <a href="#contact" class="btn btn-secondary hide-mobile">GET IN TOUCH</a>
       </div>
 
-      <p style="margin-top: 2rem; font-style: italic; opacity: 0.8">
+      <p style=" margin-top: 2rem; font-style: italic; opacity: 0.8">
         "This is how Bedford does revolution. Join the rebellion!" 🔥💥
       </p>
     </div>
   </section>
 
   <!-- Lineup Section -->
-  <section class="section" id="lineup">
+  <section class="section" id="lineup" style="margin-top: 5rem;">
     <h2>🎧 THE REVOLUTIONARIES</h2>
     <p style="text-align: center; font-size: 1.2rem; margin-bottom: 2rem; color: #ffffff;">
       While the Yanks are doing their fireworks, these legends are bringing
@@ -1139,7 +1090,7 @@
 
       </div>
 
-      <div class="map-placeholder">
+      <div class="map-placeholder hide-mobile">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d725.597118108823!2d-0.46909654283822816!3d52.14177056437869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4877b6da21d5dc73%3A0x17fb619b3e27f8bd!2sThe%20Balloon!5e1!3m2!1sen!2suk!4v1749716643860!5m2!1sen!2suk"
           width="100%" height="100%" style="border:0; border-radius: 13px;" allowfullscreen="" loading="lazy"
@@ -1386,443 +1337,37 @@
   </footer>
 
   <script>
-    // MOBILE COLOR FIX - Enhanced with background color debugging
-    function forceMobileColors() {
-      if (window.innerWidth <= 768) {
-        console.log('Applying mobile color fixes...', window.innerWidth);
-        
-        // Check body and html background first
-        const body = document.body;
-        const html = document.documentElement;
-        console.log('Body background color:', window.getComputedStyle(body).backgroundColor);
-        console.log('HTML background color:', window.getComputedStyle(html).backgroundColor);
-        
-        // Force dark background on body
-        body.style.cssText += 'background-color: #0a0a0a !important;';
-        html.style.cssText += 'background-color: #0a0a0a !important;';
-        
-        const sections = ['#lineup', '#venue', '#faq', '#contact'];
-        sections.forEach(sectionId => {
-          const section = document.querySelector(sectionId);
-          if (section) {
-            console.log(`Processing section: ${sectionId}`);
-            
-            // Get computed style before changes
-            const computedStyle = window.getComputedStyle(section);
-            console.log(`${sectionId} computed color before:`, computedStyle.color);
-            console.log(`${sectionId} computed background before:`, computedStyle.backgroundColor);
-            
-            // Force dark background and white text
-            section.style.cssText += 'color: #ffffff !important; background-color: #0a0a0a !important;';
-            
-            // Force all children with background check
-            const allElements = section.querySelectorAll('*');
-            console.log(`${sectionId} has ${allElements.length} child elements`);
-            
-            allElements.forEach((el, index) => {
-              // Check for other properties that might hide text
-              if (index < 10) {
-                const elStyle = window.getComputedStyle(el);
-                console.log(`Element ${el.tagName} - color: ${elStyle.color}, background: ${elStyle.backgroundColor}, opacity: ${elStyle.opacity}, visibility: ${elStyle.visibility}, display: ${elStyle.display}, z-index: ${elStyle.zIndex}`);
-              }
-              
-              // Force ALL properties that could hide text
-              if (el.tagName === 'P' || el.tagName === 'DIV' || el.tagName === 'SPAN' || el.tagName === 'H1' || el.tagName === 'H2' || el.tagName === 'H3') {
-                el.style.cssText += 'color: #ffffff !important; background-color: rgba(0, 0, 0, 0.9) !important; padding: 0.2rem !important; opacity: 1 !important; visibility: visible !important; display: block !important; position: relative !important; z-index: 1000 !important;';
-              } else {
-                el.style.cssText += 'color: #ffffff !important; background-color: rgba(0, 0, 0, 0.8) !important; opacity: 1 !important; visibility: visible !important;';
-              }
-              
-              // Special handling for elements that might have white backgrounds
-              if (el.classList.contains('faq-item') || el.classList.contains('artist-card') || el.classList.contains('venue-details')) {
-                el.style.cssText += 'background-color: rgba(0, 0, 0, 0.8) !important;';
-              }
-            });
-            
-            // Get computed style after changes
-            const computedStyleAfter = window.getComputedStyle(section);
-            console.log(`${sectionId} computed color after:`, computedStyleAfter.color);
-            console.log(`${sectionId} computed background after:`, computedStyleAfter.backgroundColor);
-          }
-        });
-        
-        console.log('Mobile color fixes applied with background debugging!');
-      }
-    }
-    
-    // Nuclear option - inject CSS directly into DOM
-    function injectMobileCSSFix() {
-      if (window.innerWidth <= 768) {
-        console.log('Injecting CSS fix directly into DOM...');
-        
-        // Remove any existing fix stylesheet
-        const existingStyle = document.getElementById('mobile-color-fix');
-        if (existingStyle) {
-          existingStyle.remove();
-        }
-        
-        // Create new stylesheet with solid backgrounds + specific section targeting
-        const style = document.createElement('style');
-        style.id = 'mobile-color-fix';
-        style.innerHTML = `
-          @media (max-width: 768px) {
-            #lineup, #venue, #faq, #contact {
-              background-color: #0a0a0a !important;
-              color: #ffffff !important;
-            }
-            
-            #lineup *, #venue *, #faq *, #contact * {
-              color: #ffffff !important;
-              background-color: rgba(0, 0, 0, 0.9) !important;
-            }
-            
-            /* Specific FAQ targeting */
-            .faq-answer, .faq-answer p, .faq-answer * {
-              color: #ffffff !important;
-              background-color: rgba(0, 0, 0, 0.9) !important;
-              display: block !important;
-              visibility: visible !important;
-              opacity: 1 !important;
-              padding: 1rem !important;
-              border: 1px solid #ff0066 !important;
-              margin: 0.5rem 0 !important;
-            }
-            
-            .faq-question, .faq-question span {
-              color: #ffffff !important;
-              background-color: rgba(0, 0, 0, 0.8) !important;
-              padding: 1rem !important;
-            }
-            
-            /* Specific contact section targeting */
-            #contact p, #contact div, #contact h4, 
-            #contact form, #contact label, 
-            #contact input, #contact textarea {
-              color: #ffffff !important;
-              background-color: rgba(0, 0, 0, 0.9) !important;
-              display: block !important;
-              visibility: visible !important;
-              opacity: 1 !important;
-              padding: 0.5rem !important;
-            }
-            
-            /* Specific venue section targeting */
-            .venue-feature, .venue-feature div, .venue-feature strong,
-            .venue-info-grid, .venue-info-grid div {
-              color: #ffffff !important;
-              background-color: rgba(0, 0, 0, 0.8) !important;
-              display: block !important;
-              visibility: visible !important;
-              padding: 0.5rem !important;
-            }
-            
-            .section, .section * {
-              color: #ffffff !important;
-              background-color: rgba(0, 0, 0, 0.8) !important;
-            }
-            
-            .artist-card, .artist-card * {
-              color: #ffffff !important;
-              background-color: rgba(0, 0, 0, 0.9) !important;
-            }
-            
-            h1, h2, h3, h4, h5, h6 {
-              color: #ffffff !important;
-              background-color: rgba(0, 0, 0, 0.8) !important;
-              padding: 0.5rem !important;
-            }
-            
-            p, div, span {
-              color: #ffffff !important;
-              background-color: rgba(0, 0, 0, 0.9) !important;
-              padding: 0.2rem !important;
-            }
-          }
-        `;
-        
-        // Insert at the very end of head for maximum priority
-        document.head.appendChild(style);
-        console.log('CSS fix injected successfully!');
-      }
-    }
-    
-    // Apply fixes when page loads - Updated with working solution
-    document.addEventListener('DOMContentLoaded', function() {
-      setTimeout(function() {
-        try {
-          forceMobileColors();
-          injectMobileCSSFix();
-          fixMobileHeadings(); // Add the working heading fix
-        } catch (e) {
-          console.error('Error running mobile fixes:', e);
-        }
-      }, 1000);
-    });
-    
-    window.addEventListener('load', function() {
-      setTimeout(function() {
-        try {
-          forceMobileColors();
-          injectMobileCSSFix();
-          fixMobileHeadings(); // Add the working heading fix
-        } catch (e) {
-          console.error('Error running mobile fixes:', e);
-        }
-      }, 1000);
-    });
-    
-    window.addEventListener('resize', function() {
-      setTimeout(function() {
-        try {
-          fixMobileHeadings(); // Add the working heading fix on resize
-        } catch (e) {
-          console.error('Error running mobile fixes on resize:', e);
-        }
-      }, 500);
-    });
-    
-    // Apply fixes after delays to catch late-loading elements
-    setTimeout(function() {
-      try {
-        forceMobileColors();
-        injectMobileCSSFix();
-        fixMobileHeadings(); // Add the working heading fix
-      } catch (e) {
-        console.error('Error in delayed mobile fixes:', e);
-      }
-    }, 3000);
-    
-    window.manuallyFixColors = function() {
-      console.log('Manual color fix triggered - checking background colors...');
-      
-      // Force dark theme on everything
-      document.body.style.cssText = 'background-color: #0a0a0a !important; color: #ffffff !important;';
-      document.documentElement.style.cssText = 'background-color: #0a0a0a !important;';
-      
-      // Force all sections to have proper contrast
-      document.querySelectorAll('#lineup, #venue, #faq, #contact').forEach(section => {
-        section.style.cssText = 'color: #ffffff !important; background-color: #0a0a0a !important; padding: 2rem !important; margin: 1rem 0 !important;';
-        
-        // Force all children with high contrast
-        section.querySelectorAll('*').forEach(el => {
-          const bgColor = el.classList.contains('faq-item') || el.classList.contains('artist-card') ? 'rgba(0, 0, 0, 0.8)' : 'transparent';
-          el.style.cssText = `color: #ffffff !important; background-color: ${bgColor} !important; opacity: 1 !important; visibility: visible !important; display: block !important;`;
-        });
-        
-        // Special handling for FAQ items
-        section.querySelectorAll('.faq-item').forEach(faq => {
-          faq.style.cssText = 'background-color: rgba(0, 0, 0, 0.8) !important; border: 1px solid #ff0066 !important; margin: 1rem 0 !important; border-radius: 10px !important;';
-        });
-      });
-      
-      forceMobileColors();
-      injectMobileCSSFix();
-      
-      console.log('Manual fix complete. Text should now be white on dark backgrounds.');
-      console.log('If still not visible, the issue may be browser-specific or a rendering problem.');
-    };
-    
-    // TEST FUNCTION - Try bright colors to see if text exists
-    window.testBrightColors = function() {
-      console.log('Testing with bright yellow text...');
-      document.querySelectorAll('#lineup, #venue, #faq, #contact').forEach(section => {
-        section.querySelectorAll('*').forEach(el => {
-          el.style.cssText = 'color: #ffff00 !important; background-color: #ff0000 !important; font-size: 20px !important; border: 2px solid #00ff00 !important; opacity: 1 !important; visibility: visible !important; display: block !important; position: relative !important; z-index: 9999 !important;';
-        });
-      });
-      console.log('Text should now be BRIGHT YELLOW on RED background with GREEN borders.');
-      console.log('If you still cannot see anything, there is a fundamental rendering issue.');
-    };
-    
-    // FINAL DEBUG - Check element dimensions and positioning
-    window.debugElementPositions = function() {
-      console.log('=== DEBUGGING ELEMENT POSITIONS AND DIMENSIONS ===');
-      
-      // Check FAQ answers specifically
-      const faqAnswers = document.querySelectorAll('.faq-answer');
-      console.log(`--- FAQ ANSWERS (${faqAnswers.length} found) ---`);
-      faqAnswers.forEach((el, index) => {
-        const rect = el.getBoundingClientRect();
-        const style = window.getComputedStyle(el);
-        console.log(`FAQ Answer ${index}: top=${rect.top}, left=${rect.left}, width=${rect.width}, height=${rect.height}, display=${style.display}, visibility=${style.visibility}, opacity=${style.opacity}`);
-        
-        // Force visible with guaranteed dimensions
-        el.style.cssText = 'color: #ffff00 !important; background-color: #ff0000 !important; display: block !important; visibility: visible !important; opacity: 1 !important; position: relative !important; min-height: 50px !important; width: 95% !important; margin: 10px auto !important; padding: 15px !important; border: 5px solid #00ff00 !important; z-index: 9999 !important; font-size: 20px !important; line-height: 1.5 !important;';
-      });
-      
-      // Check contact paragraphs
-      const contactPs = document.querySelectorAll('#contact p');
-      console.log(`--- CONTACT PARAGRAPHS (${contactPs.length} found) ---`);
-      contactPs.forEach((el, index) => {
-        const rect = el.getBoundingClientRect();
-        console.log(`Contact P ${index}: top=${rect.top}, left=${rect.left}, width=${rect.width}, height=${rect.height}`);
-        
-        // Force visible with guaranteed dimensions
-        el.style.cssText = 'color: #ffff00 !important; background-color: #ff0000 !important; display: block !important; visibility: visible !important; opacity: 1 !important; position: relative !important; min-height: 40px !important; width: 95% !important; margin: 10px auto !important; padding: 15px !important; border: 5px solid #00ff00 !important; z-index: 9999 !important; font-size: 18px !important;';
-      });
-      
-      console.log('Elements forced to have guaranteed dimensions and positioning.');
-    };
-    
-    // Fix for missing section headings specifically
-    window.fixSectionHeadings = function() {
-      // DISABLED: This function was causing heading duplication
-      console.log('fixSectionHeadings() disabled - headings should now display correctly with CSS');
-      return;
-      
-      console.log('Fixing section headings...');
-      
-      const headings = document.querySelectorAll('#lineup h2, #venue h2, #faq h2, #contact h2');
-      console.log(`Found ${headings.length} section headings`);
-      
-      headings.forEach((h2, index) => {
-        console.log(`Heading ${index}: "${h2.textContent}"`);
-        const rect = h2.getBoundingClientRect();
-        console.log(`Position: top=${rect.top}, width=${rect.width}, height=${rect.height}`);
-        
-        // Force headings to be highly visible
-        h2.style.cssText = 'color: #ffffff !important; background-color: rgba(255, 0, 102, 0.8) !important; display: block !important; visibility: visible !important; opacity: 1 !important; font-size: 2rem !important; font-weight: bold !important; text-align: center !important; padding: 1rem !important; margin: 2rem auto !important; border: 3px solid #ffffff !important; border-radius: 10px !important; width: 95% !important; min-height: 60px !important; z-index: 9999 !important; line-height: 1.2 !important;';
-      });
-      
-      console.log('Section headings should now be white text on pink backgrounds with white borders!');
-    };
-    
-    // TARGETED FIX for specific invisible sections
-    window.fixSpecificSections = function() {
-      console.log('Fixing specific invisible sections...');
-      
-      // Target FAQ answers specifically
-      const faqAnswers = document.querySelectorAll('.faq-answer, .faq-answer p, .faq-answer *');
-      console.log(`Found ${faqAnswers.length} FAQ answer elements`);
-      faqAnswers.forEach(el => {
-        el.style.cssText = 'color: #ffffff !important; background-color: rgba(0, 0, 0, 0.9) !important; display: block !important; visibility: visible !important; opacity: 1 !important; font-size: 16px !important; padding: 1rem !important; margin: 0.5rem 0 !important; border: 1px solid #ff0066 !important;';
-      });
-      
-      // Target contact section specifically
-      const contactElements = document.querySelectorAll('#contact p, #contact div, #contact h4, #contact form, #contact label, #contact input, #contact textarea');
-      console.log(`Found ${contactElements.length} contact elements`);
-      contactElements.forEach(el => {
-        el.style.cssText = 'color: #ffffff !important; background-color: rgba(0, 0, 0, 0.9) !important; display: block !important; visibility: visible !important; opacity: 1 !important; font-size: 16px !important; padding: 0.5rem !important;';
-      });
-      
-      // Target venue details specifically  
-      const venueElements = document.querySelectorAll('.venue-feature, .venue-feature div, .venue-feature strong, .venue-info-grid div');
-      console.log(`Found ${venueElements.length} venue elements`);
-      venueElements.forEach(el => {
-        el.style.cssText = 'color: #ffffff !important; background-color: rgba(0, 0, 0, 0.8) !important; display: block !important; visibility: visible !important; opacity: 1 !important; padding: 0.5rem !important;';
-      });
-      
-      console.log('Specific sections fixed!');
-    };
-    
-    // SIMPLE WORKING heading fix
-    window.forceHeadingsVisible = function() {
-      // DISABLED: This function was causing heading duplication
-      console.log('forceHeadingsVisible() disabled - headings should now display correctly with CSS');
-      return;
-      
-      console.log('Forcing headings to be visible...');
-      
-      // Find all section headings
-      const headings = document.querySelectorAll('#lineup h2, #venue h2, #faq h2, #contact h2');
-      console.log('Found headings:', headings.length);
-      
-      headings.forEach((h2, index) => {
-        console.log('Processing heading:', h2.textContent);
-        
-        // Force the heading to be visible with bright colors
-        h2.style.cssText = 'color: #ffff00 !important; background-color: #ff0000 !important; display: block !important; visibility: visible !important; opacity: 1 !important; font-size: 2rem !important; font-weight: 900 !important; text-align: center !important; padding: 2rem !important; margin: 2rem auto !important; border: 5px solid #00ff00 !important; width: 95% !important; min-height: 80px !important; z-index: 9999 !important; line-height: 1.2 !important;';
-        
-        console.log('Styled heading:', index);
-      });
-    };
-      
-    // WORKING ALL-IN-ONE FIX
-    window.fixEverything = function() {
-      // DISABLED: This function was causing heading duplication
-      console.log('fixEverything() disabled - headings should now display correctly with CSS');
-      return;
-      
-      console.log('=== FIXING EVERYTHING ===');
-      
-      try {
-        // Fix section headings
-        const headings = document.querySelectorAll('#lineup h2, #venue h2, #faq h2, #contact h2');
-        console.log('Found headings:', headings.length);
-        headings.forEach((h2, index) => {
-          console.log('Fixing heading:', h2.textContent);
-          h2.style.cssText = 'color: #ffff00 !important; background-color: #ff0000 !important; display: block !important; visibility: visible !important; opacity: 1 !important; font-size: 2rem !important; font-weight: 900 !important; text-align: center !important; padding: 2rem !important; margin: 2rem auto !important; border: 5px solid #00ff00 !important; width: 95% !important; min-height: 80px !important; z-index: 9999 !important; line-height: 1.2 !important;';
-        });
-        
-        // Fix FAQ answers
-        const faqAnswers = document.querySelectorAll('.faq-answer, .faq-answer p');
-        console.log('Found FAQ answers:', faqAnswers.length);
-        faqAnswers.forEach(el => {
-          el.style.cssText = 'color: #ffffff !important; background-color: rgba(0, 0, 0, 0.9) !important; display: block !important; visibility: visible !important; opacity: 1 !important; font-size: 16px !important; padding: 1rem !important; margin: 0.5rem 0 !important; border: 2px solid #ff0066 !important;';
-        });
-        
-        // Fix contact elements
-        const contactElements = document.querySelectorAll('#contact p, #contact div, #contact h4');
-        console.log('Found contact elements:', contactElements.length);
-        contactElements.forEach(el => {
-          el.style.cssText = 'color: #ffffff !important; background-color: rgba(0, 0, 0, 0.9) !important; display: block !important; visibility: visible !important; opacity: 1 !important; font-size: 16px !important; padding: 0.5rem !important;';
-        });
-        
-        console.log('=== ALL FIXES APPLIED SUCCESSFULLY ===');
-        
-      } catch (error) {
-        console.error('Error in fixEverything:', error);
-      }
-    };
+    // Debug FAQ functionality
+    window.addEventListener('load', function () {
+      console.log('toggleFAQ function exists:', typeof window.toggleFAQ);
 
-    // WORKING MOBILE HEADING FIX - Final solution that works
-    function fixMobileHeadings() {
-      // DISABLED: This function was causing heading duplication
-      // The inline styles have been removed and CSS styling should handle this properly
-      console.log('fixMobileHeadings() disabled - headings should now display correctly with CSS');
-      return;
-      
-      if (window.innerWidth <= 768) {
-        console.log('=== APPLYING MOBILE HEADING FIX ===');
-        
-        const headings = document.querySelectorAll('#lineup h2, #venue h2, #faq h2, #contact h2');
-        
-        headings.forEach((h2, index) => {
-          // Skip if already fixed
-          if (h2.dataset.fixed) return;
-          
-          const originalText = h2.textContent || '';
-          console.log(`Fixing mobile heading: "${originalText}"`);
-          
-          // Create new element with proper website styling
-          const newH2 = document.createElement('div');
-          newH2.style.cssText = 'color: #ffffff !important; background-color: rgba(0, 0, 0, 0.8) !important; font-size: 2rem !important; font-weight: bold !important; text-align: center !important; padding: 1.5rem !important; margin: 2rem auto !important; border: 2px solid #ff0066 !important; border-radius: 10px !important; font-family: Arial, sans-serif !important; letter-spacing: 1px !important; text-shadow: 1px 1px 2px #000000 !important; z-index: 99999 !important; position: relative !important; display: block !important; visibility: visible !important; opacity: 1 !important; width: 95% !important; max-width: 800px !important;';
-          
-          // Clean text and set content
-          const cleanText = originalText.replace(/>>> |<<</g, '').trim();
-          newH2.textContent = cleanText;
-          newH2.dataset.fixed = 'true';
-          
-          // Replace the old heading
-          h2.parentNode.insertBefore(newH2, h2);
-          h2.style.display = 'none';
-          h2.dataset.fixed = 'true';
-          
-          console.log(`Mobile heading fixed: "${cleanText}"`);
-        });
-        
-        console.log('=== MOBILE HEADING FIX COMPLETE ===');
+      // Backup FAQ toggle if main function fails
+      if (typeof window.toggleFAQ === 'undefined') {
+        window.toggleFAQ = function (element) {
+          const answer = element.nextElementSibling;
+          const symbol = element.querySelector("span:last-child");
+
+          if (answer.classList.contains("active")) {
+            answer.classList.remove("active");
+            symbol.textContent = "+";
+          } else {
+            document.querySelectorAll(".faq-answer.active").forEach((openAnswer) => {
+              openAnswer.classList.remove("active");
+              openAnswer.previousElementSibling.querySelector("span:last-child").textContent = "+";
+            });
+            answer.classList.add("active");
+            symbol.textContent = "-";
+          }
+        };
+        console.log('Backup toggleFAQ function created');
       }
-    }
-    
-    // Make the working fix available manually too
-    window.fixMobileHeadings = fixMobileHeadings;
+    });
 
     // Beats Countdown Configuration
     const CONFIG = {
       BPM: 132,
-      TARGET: new Date("2025-07-04T18:00:00Z").getTime(),
-      START: new Date("2025-05-27T00:00:00Z").getTime(),
+      TARGET: new Date("2025-07-04T18:00:00").getTime(),
+      START: new Date("2025-05-27T00:00:00").getTime(),
       UPDATE_INTERVAL: 1000,
       TOTAL_DURATION: null // Will be calculated once
     };
@@ -1848,10 +1393,16 @@
 
         if (diffMs <= 0) {
           // Event has started or passed
-          domElements.beats.textContent = 'Event is live! 🎉';
-          domElements.progressBar.style.width = '100%';
-          domElements.progressBar.setAttribute('aria-valuenow', '100');
-          domElements.progressPercent.textContent = '100.0% complete';
+          if (domElements.beats) {
+            domElements.beats.textContent = 'Event is live! 🎉';
+          }
+          if (domElements.progressBar) {
+            domElements.progressBar.style.width = '100%';
+            domElements.progressBar.setAttribute('aria-valuenow', '100');
+          }
+          if (domElements.progressPercent) {
+            domElements.progressPercent.textContent = '100.0% complete';
+          }
 
           // Clear interval to prevent unnecessary updates
           if (countdownInterval) {
@@ -1863,13 +1414,22 @@
         // Optimized calculations
         const totalMinutes = diffMs / 60000;
         const totalBeats = Math.floor(CONFIG.BPM * totalMinutes);
-        const progress = Math.min(100, Math.max(0, 100 - (diffMs / CONFIG.TOTAL_DURATION) * 100));
 
-        // Update DOM
-        domElements.beats.textContent = totalBeats.toLocaleString() + ' beats to go';
-        domElements.progressBar.style.width = progress + '%';
-        domElements.progressBar.setAttribute('aria-valuenow', Math.round(progress));
-        domElements.progressPercent.textContent = progress.toFixed(1) + '% complete';
+        // Calculate progress percentage (how much time has elapsed since start)
+        const elapsed = now - CONFIG.START;
+        const progress = Math.min(100, Math.max(0, (elapsed / CONFIG.TOTAL_DURATION) * 100));
+
+        // Update DOM with null checks
+        if (domElements.beats) {
+          domElements.beats.textContent = totalBeats.toLocaleString() + ' beats to go';
+        }
+        if (domElements.progressBar) {
+          domElements.progressBar.style.width = progress + '%';
+          domElements.progressBar.setAttribute('aria-valuenow', Math.round(progress));
+        }
+        if (domElements.progressPercent) {
+          domElements.progressPercent.textContent = progress.toFixed(1) + '% complete';
+        }
 
       } catch (error) {
         console.error('Error updating countdown:', error);
@@ -1898,219 +1458,58 @@
       }
     }
 
-    // Smooth Scrolling
-    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-      anchor.addEventListener("click", function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute("href"));
-        if (target) {
-          target.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-          });
-        }
-      });
-    });
-
-    // Navbar scroll effect
-    window.addEventListener("scroll", function () {
-      const navbar = document.getElementById("navbar");
-      if (window.scrollY > 100) {
-        navbar.classList.add("scrolled");
-      } else {
-        navbar.classList.remove("scrolled");
-      }
-    });
-
-    // FAQ Toggle
-    function toggleFAQ(element) {
-      const answer = element.nextElementSibling;
-      const symbol = element.querySelector("span:last-child");
-
-      if (answer.classList.contains("active")) {
-        answer.classList.remove("active");
-        symbol.textContent = "+";
-      } else {
-        // Close all other FAQs
-        document
-          .querySelectorAll(".faq-answer.active")
-          .forEach((openAnswer) => {
-            openAnswer.classList.remove("active");
-            openAnswer.previousElementSibling.querySelector(
-              "span:last-child"
-            ).textContent = "+";
-          });
-
-        answer.classList.add("active");
-        symbol.textContent = "-";
-      }
-    }
-
-    // Ticket Purchase
-    function purchaseTicket(ticketType) {
-      // Analytics tracking
-      if (typeof gtag !== "undefined") {
-        gtag("event", "ticket_purchase_attempt", {
-          ticket_type: ticketType,
-          event_name: "Bedford Techno Independence Day",
-        });
-      }
-
-      // In a real implementation, this would redirect to Eventbrite or your payment processor
-      alert(
-        `Redirecting to secure checkout for ${ticketType} tickets...\n\nNote: This is a demo. In production, this would link to Eventbrite or your payment system.`
-      );
-
-      // Example redirect (uncomment and modify for real implementation):
-      // window.open('https://www.eventbrite.com/e/your-event-id', '_blank');
-    }
-
-    // Contact Form
+    // Contact form submission
     function submitContactForm(event) {
       event.preventDefault();
 
       const formData = new FormData(event.target);
       const data = Object.fromEntries(formData);
 
-      // Analytics tracking
-      if (typeof gtag !== "undefined") {
-        gtag("event", "contact_form_submit", {
-          subject: data.subject || "No subject",
-        });
+      // Simple validation
+      if (!data.name || !data.email || !data.message) {
+        alert('Please fill in all required fields.');
+        return;
       }
 
-      // In a real implementation, this would send to your backend
-      alert(
-        "Thanks for your message! We'll get back to you soon.\n\nNote: This is a demo form. In production, this would send your message to our team."
-      );
-
-      // Reset form
+      // For now, just show a success message
+      alert('Thanks for your message! We\'ll get back to you soon about the Bedford Techno Revolution! 🔥');
       event.target.reset();
     }
 
-    // Mobile Menu Toggle - Enhanced version with better error handling
+    // Initialize everything when DOM is loaded
     document.addEventListener('DOMContentLoaded', function () {
-      const mobileMenuBtn = document.getElementById("mobile-menu");
-      const navLinks = document.querySelector(".nav-links");
-
-      if (mobileMenuBtn && navLinks) {
-        mobileMenuBtn.addEventListener("click", function (e) {
-          e.preventDefault();
-          console.log('Mobile menu clicked'); // Debug log
-
-          navLinks.classList.toggle("active");
-          mobileMenuBtn.classList.toggle("active");
-
-          // Prevent body scroll when menu is open
-          if (navLinks.classList.contains("active")) {
-            document.body.style.overflow = "hidden";
-          } else {
-            document.body.style.overflow = "";
-          }
-        });
-
-        // Close menu when clicking on a nav link
-        const navLinksItems = navLinks.querySelectorAll("a");
-        navLinksItems.forEach(link => {
-          link.addEventListener("click", function () {
-            navLinks.classList.remove("active");
-            mobileMenuBtn.classList.remove("active");
-            document.body.style.overflow = "";
-          });
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener("click", function (e) {
-          if (!mobileMenuBtn.contains(e.target) && !navLinks.contains(e.target)) {
-            navLinks.classList.remove("active");
-            mobileMenuBtn.classList.remove("active");
-            document.body.style.overflow = "";
-          }
-        });
-      } else {
-        console.error('Mobile menu elements not found');
-      }
-    });
-
-    // Intersection Observer for animations
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: "0px 0px -50px 0px",
-    };
-
-    const observer = new IntersectionObserver(function (entries) {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("fade-in-up");
-        }
-      });
-    }, observerOptions);
-
-    // Observe all artist cards and other elements
-    document
-      .querySelectorAll(".artist-card, .ticket-card, .venue-details")
-      .forEach((el) => {
-        observer.observe(el);
-      });
-
-    // Page Load Analytics and Initialization
-    window.addEventListener("load", function () {
-      // Initialize beats countdown
       initializeCountdown();
 
-      if (typeof gtag !== "undefined") {
-        gtag("event", "page_view", {
-          page_title: "Bedford Techno Independence Day",
-          page_location: window.location.href,
+      // Smooth scrolling for navigation links
+      const links = document.querySelectorAll('a[href^="#"]');
+      links.forEach(link => {
+        link.addEventListener('click', function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          const targetSection = document.querySelector(targetId);
+          if (targetSection) {
+            targetSection.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+
+      // Navbar scroll effect
+      const navbar = document.getElementById('navbar');
+      if (navbar) {
+        window.addEventListener('scroll', function () {
+          if (window.scrollY > 100) {
+            navbar.classList.add('scrolled');
+          } else {
+            navbar.classList.remove('scrolled');
+          }
         });
       }
     });
 
-    // Cleanup on page unload
-    window.addEventListener('beforeunload', function () {
-      if (countdownInterval) {
-        clearInterval(countdownInterval);
-      }
-    });
-
-    // Social Media Click Tracking
-    document.querySelectorAll(".social-icon").forEach((icon) => {
-      icon.addEventListener("click", function (e) {
-        const platform = this.getAttribute("title") || "Unknown";
-        if (typeof gtag !== "undefined") {
-          gtag("event", "social_click", {
-            platform: platform,
-          });
-        }
-      });
-    });
-
-    // Easter Egg: Konami Code
-    let konamiCode = [];
-    const konamiSequence = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65]; // Up Up Down Down Left Right Left Right B A
-
-    document.addEventListener("keydown", function (e) {
-      konamiCode.push(e.keyCode);
-      if (konamiCode.length > konamiSequence.length) {
-        konamiCode.shift();
-      }
-
-      if (konamiCode.join(",") === konamiSequence.join(",")) {
-        document.body.style.animation = "pulse 0.5s infinite";
-        alert(
-          "🔥 CHEAT CODE ACTIVATED! 🔥\nYou've unlocked the secret Bedford rebel status!\nShow this message at the door for a surprise! 😉"
-        );
-        setTimeout(() => {
-          document.body.style.animation = "";
-        }, 5000);
-        konamiCode = [];
-      }
-    });
-
-    // Maps now using iframe embed instead of Google Maps API
-
-    console.log("🎵 Bedford Techno Independence Day loaded successfully! 🎵");
-    console.log("Looking for easter eggs? Try the Konami code... 😉");
+    console.log("Bedford Techno Independence Day - loaded successfully!");
   </script>
 </body>
 

@@ -1,24 +1,4 @@
-// Mobile Navigation Toggle
-document.addEventListener('DOMContentLoaded', function() {
-    const mobileMenu = document.getElementById('mobile-menu');
-    const navMenu = document.querySelector('.nav-links'); // Fixed selector to match HTML
-    
-    if (mobileMenu && navMenu) {
-        mobileMenu.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
-        });
-    }
-    
-    // Close mobile menu when clicking on a link
-    const navLinks = document.querySelectorAll('.nav-links a'); // Updated selector
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-            mobileMenu.classList.remove('active');
-        });
-    });
-});
+// Mobile Navigation Toggle - REMOVED for better responsive design
 
 // Countdown Timer
 function initCountdown() {

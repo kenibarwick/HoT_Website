@@ -11,6 +11,7 @@ A modern, responsive website for the Bedford Techno Independence Day event featu
 - **Event Management**: Comprehensive pages for lineup, tickets, venue, FAQ, and contact
 - **SEO Optimized**: Meta tags, structured content, and search-friendly URLs
 - **Accessibility**: WCAG compliant with proper contrast and semantic markup
+- **Mobile UX Optimization**: Ongoing improvements for mobile user experience (see `MOBILE_UX_STATUS.md`)
 
 ## HoT Branding Integration
 
@@ -37,19 +38,24 @@ A modern, responsive website for the Bedford Techno Independence Day event featu
 
 ```
 /
-├── index.html          # Homepage with hero section and event overview
-├── lineup.html         # DJ lineup with artist profiles and set times
-├── tickets.html        # Ticket information and purchasing options
-├── venue.html          # Venue details and directions
-├── faq.html           # Frequently asked questions
-├── contact.html       # Contact form and information
+├── index.html                    # Homepage with hero section and event overview
+├── lineup.html                   # DJ lineup with artist profiles and set times
+├── tickets.html                  # Ticket information and purchasing options
+├── venue.html                    # Venue details and directions
+├── faq.html                     # Frequently asked questions
+├── contact.html                 # Contact form and information
 ├── css/
-│   └── style.css      # Main stylesheet with all page styles
+│   └── style.css                # Main stylesheet with all page styles
 ├── js/
-│   ├── main.js        # Core functionality (countdown, navigation, particles)
-│   ├── faq.js         # FAQ page interactions
-│   └── contact.js     # Contact form handling
-└── images/            # Image assets (see requirements below)
+│   ├── main.js                  # Core functionality (countdown, navigation, particles)
+│   ├── faq.js                   # FAQ page interactions
+│   └── contact.js               # Contact form handling
+├── images/                      # Image assets (see requirements below)
+└── docs/                        # Project documentation
+    ├── MOBILE_UX_STATUS.md      # Current mobile UX issues and fixes
+    ├── MOBILE_UX_IMPROVEMENT_GUIDE.md  # Comprehensive mobile improvement guide
+    ├── ERROR_FIXES_SUMMARY.md   # Previous error fixes documentation
+    └── HOT_BRANDING_SUMMARY.md  # HoT branding implementation details
 ```
 
 ## Required Images
@@ -171,6 +177,18 @@ Update event details, dates, and information throughout the site as needed.
 - GDPR compliance for EU visitors
 - Cookie consent if using tracking
 - Terms and conditions for ticket sales
+
+## Development Documentation
+
+### **Mobile UX Issues & Tracking:**
+- **Current Status**: See `MOBILE_UX_STATUS.md` for active issues and completed fixes
+- **Improvement Guide**: See `MOBILE_UX_IMPROVEMENT_GUIDE.md` for systematic improvement approach
+- **Recent Fix**: Social media icons removed from mobile (June 15, 2025)
+
+### **Project History:**
+- **Branding**: `HOT_BRANDING_SUMMARY.md` - HoT branding implementation
+- **Error Fixes**: `ERROR_FIXES_SUMMARY.md` - Previous technical fixes
+- **Updates**: All major changes documented with dates and file references
 
 ---
 
