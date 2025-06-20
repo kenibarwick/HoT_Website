@@ -4,7 +4,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>House of Techno - Coming Soon</title>
+  <title>House of Techno - 4th July @ The Balloon, Bedford</title>
+  
+  <!-- Google Ads Conversion Tracking -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17169773165"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'AW-17169773165');
+  </script>
+  
+  <!-- Event snippet for Get directions conversion page -->
+  <script>
+    gtag('event', 'conversion', {'send_to': 'AW-17169773165/ohY_CLSr0dUaEO3kl_s_'});
+  </script>
+  
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     @keyframes spin-slow {
@@ -119,8 +136,13 @@
     }
 
     @keyframes fadeInOverlay {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
     }
 
     .drop-countdown-text {
@@ -136,7 +158,7 @@
       font-size: clamp(8rem, 20vw, 20rem);
       font-weight: 900;
       color: #ec4899;
-      text-shadow: 
+      text-shadow:
         0 0 20px rgba(236, 72, 153, 0.8),
         0 0 40px rgba(236, 72, 153, 0.6),
         0 0 60px rgba(236, 72, 153, 0.4);
@@ -146,9 +168,20 @@
     }
 
     @keyframes countdownPulse {
-      0% { transform: scale(0.5); opacity: 0; }
-      50% { transform: scale(1.2); opacity: 1; }
-      100% { transform: scale(1); opacity: 1; }
+      0% {
+        transform: scale(0.5);
+        opacity: 0;
+      }
+
+      50% {
+        transform: scale(1.2);
+        opacity: 1;
+      }
+
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
     }
 
     .drop-beat-bars {
@@ -165,17 +198,53 @@
       animation: beatWave 0.8s ease-in-out infinite;
     }
 
-    .drop-bar:nth-child(1) { height: 20px; animation-delay: 0s; }
-    .drop-bar:nth-child(2) { height: 40px; animation-delay: 0.1s; }
-    .drop-bar:nth-child(3) { height: 60px; animation-delay: 0.2s; }
-    .drop-bar:nth-child(4) { height: 80px; animation-delay: 0.3s; }
-    .drop-bar:nth-child(5) { height: 60px; animation-delay: 0.4s; }
-    .drop-bar:nth-child(6) { height: 40px; animation-delay: 0.5s; }
-    .drop-bar:nth-child(7) { height: 20px; animation-delay: 0.6s; }
+    .drop-bar:nth-child(1) {
+      height: 20px;
+      animation-delay: 0s;
+    }
+
+    .drop-bar:nth-child(2) {
+      height: 40px;
+      animation-delay: 0.1s;
+    }
+
+    .drop-bar:nth-child(3) {
+      height: 60px;
+      animation-delay: 0.2s;
+    }
+
+    .drop-bar:nth-child(4) {
+      height: 80px;
+      animation-delay: 0.3s;
+    }
+
+    .drop-bar:nth-child(5) {
+      height: 60px;
+      animation-delay: 0.4s;
+    }
+
+    .drop-bar:nth-child(6) {
+      height: 40px;
+      animation-delay: 0.5s;
+    }
+
+    .drop-bar:nth-child(7) {
+      height: 20px;
+      animation-delay: 0.6s;
+    }
 
     @keyframes beatWave {
-      0%, 100% { transform: scaleY(1); opacity: 0.6; }
-      50% { transform: scaleY(1.5); opacity: 1; }
+
+      0%,
+      100% {
+        transform: scaleY(1);
+        opacity: 0.6;
+      }
+
+      50% {
+        transform: scaleY(1.5);
+        opacity: 1;
+      }
     }
 
     /* Flash effect for the drop */
@@ -192,9 +261,17 @@
     }
 
     @keyframes flashEffect {
-      0% { opacity: 0; }
-      50% { opacity: 1; }
-      100% { opacity: 0; }
+      0% {
+        opacity: 0;
+      }
+
+      50% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+      }
     }
 
     /* Explode transition */
@@ -203,8 +280,15 @@
     }
 
     @keyframes explode {
-      0% { transform: scale(1); opacity: 1; }
-      100% { transform: scale(20); opacity: 0; }
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      100% {
+        transform: scale(20);
+        opacity: 0;
+      }
     }
 
     /* Instant redirect overlay */
@@ -232,8 +316,13 @@
     }
 
     @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
     }
 
     .redirect-text {
@@ -255,9 +344,9 @@
   <!-- Count down to drop overlay (hidden by default) -->
   <div id="countdownOverlay" class="countdown-overlay" style="display: none;">
     <div class="drop-countdown-text">Count Down to the Drop</div>
-    
+
     <div id="dropCountdownNumber" class="drop-countdown-number">3</div>
-    
+
     <div class="drop-beat-bars">
       <div class="drop-bar"></div>
       <div class="drop-bar"></div>
@@ -368,15 +457,15 @@
       if (visitCount >= 3) {
         // Show instant redirect overlay
         document.getElementById('instantRedirect').style.display = 'flex';
-        
+
         // Redirect immediately for returning users
         setTimeout(() => {
           window.location.href = './v1/index.html';
         }, 1000);
-        
+
         return true;
       }
-      
+
       return false;
     }
 
@@ -384,46 +473,46 @@
     function startDropCountdown() {
       const overlay = document.getElementById('countdownOverlay');
       const countdownElement = document.getElementById('dropCountdownNumber');
-      
+
       // Show the countdown overlay
       overlay.style.display = 'flex';
-      
+
       let count = 3;
 
       const countdown = setInterval(() => {
         if (count > 0) {
           countdownElement.textContent = count;
           countdownElement.style.animation = 'none';
-          
+
           // Trigger animation
           setTimeout(() => {
             countdownElement.style.animation = 'countdownPulse 1s ease-in-out';
           }, 10);
-          
+
           count--;
         } else {
           clearInterval(countdown);
-          
+
           // THE DROP!
           countdownElement.textContent = 'DROP!';
           countdownElement.style.color = '#06b6d4';
           countdownElement.style.animation = 'countdownPulse 0.5s ease-in-out';
-          
+
           // Flash effect
           const flash = document.getElementById('flashEffect');
           flash.style.display = 'block';
-          
+
           setTimeout(() => {
             flash.style.display = 'none';
-            
+
             // Start transition
             overlay.classList.add('explode');
-            
+
             // Navigate to main site
             setTimeout(() => {
               window.location.href = './v1/index.html';
             }, 1000);
-            
+
           }, 500);
         }
       }, 1000);
@@ -490,7 +579,7 @@
       if (e.target.closest('.countdown-overlay') || e.target.closest('.instant-redirect')) {
         return;
       }
-      
+
       // Add some interactive sparkle effect to circles
       const circles = document.querySelectorAll('.animate-spin-slow, .animate-spin-reverse');
       circles.forEach(circle => {
